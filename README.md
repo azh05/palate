@@ -50,4 +50,4 @@ Upload a photo of a menu or paste a link to an online menu, and let PlatePal do 
 ## Getting Started  
 1. Clone the repository:  
    ```bash  
-   git clone https://github.com/your-username/platepal.git  
+   git clone https://github.com/azh05/palate.git  
