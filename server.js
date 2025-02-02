@@ -75,8 +75,9 @@ async function refineDishNamesWithGemini(dishes) {
         `- Provide a detailed description of each dish with flavor profile, and ingredients to describe its qualities\n` +
         `- Keep descriptions about 2 sentences long and include new info not in name of dish.**\n\n` +
         `### **Format the response as a JSON array of objects like this:**\n` +
+        `- Keep every thing in isRecommended as 0` +
         "```json\n" +
-        `[ { "name": "Dish Name", "description": "Brief or detailed description" } ]\n` +
+        `[ { "name": "Dish Name", "description": "Brief or detailed description", "isRecommended": "0" } ]\n` +
         "```";
 
         const response = await axios.post(
@@ -110,16 +111,15 @@ async function refineDishNamesWithGemini(dishes) {
 }
 
 // OCR Route
-app.post('/extract-text', async (req, res) => {
+async function extractText(imageBase64) {
     try {
-        const { imageBase64 } = req.body;  
-        if (!imageBase64) {
-            return res.status(400).json({ error: "No image provided" });
-        }
+        // if (!imageBase64) {
+        //     return {};
+        // }
 
         // Convert base64 to binary image buffer
         const buffer = Buffer.from(imageBase64, 'base64');
-        
+
         // Save to a temporary file
         const tempImagePath = path.join(__dirname, 'temp_image.jpg');
         fs.writeFileSync(tempImagePath, buffer);
@@ -147,14 +147,12 @@ app.post('/extract-text', async (req, res) => {
         // Delete the temporary file
         fs.unlinkSync(tempImagePath);
 
-        // Return cleaned dishes
-        res.json({ dishes: filteredDishes });
+        return filteredDishes;
 
     } catch (error) {
-        console.error("Error processing image:", error);
-        res.status(500).json({ error: "Failed to extract text" });
+        return false;
     }
-});
+  }
 
 // Function to refine and recommend 3 dishes using Gemini AI
 async function getGeminiRecommendations(userLikedFoods, menuDishes) {
@@ -254,7 +252,12 @@ app.post("/api/menu/compare-dishes", async (req, res) => {
 
 // **POST: Recommend 3 dishes based on user’s preferences**
 app.post("/api/menu/recommend-dishes", async (req, res) => {
-  const { userName, dishes } = req.body;
+  const { userName } = req.query;
+  const { imageBase64 } = req.body;
+  dishes = await extractText(imageBase64);
+  // console.log(dishes);
+  // console.log(userName);
+  // console.log(imageBase64);
 
   if (!userName || !dishes) {
       return res.status(400).json({ error: "User name and dishes are required" });
@@ -267,10 +270,21 @@ app.post("/api/menu/recommend-dishes", async (req, res) => {
       }
 
       const recommendations = await getGeminiRecommendations(user.likedFoods, dishes);
-      res.json({ success: true, recommendations });
+
+      for(i = 0; i < dishes.length; i++) {
+        for(j = 0; j < recommendations.length; j++) {
+          if (dishes[i].name == recommendations[j].name) {
+            dishes[i].description = recommendations[j].reason;
+            dishes[i].isRecommended = "1";
+          }
+        }
+      }
+
+      res.json({ success: true, dishes });
   } catch (error) {
       res.status(500).json({ error: error.message });
   }
+
 });
 
 // **POST: User feedback on a dish**
