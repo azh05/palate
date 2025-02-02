@@ -31,7 +31,10 @@ Upload a photo of a menu or paste a link to an online menu, and let Palate do th
 ### **APIs/Tools**  
 - **Google Vision API** (OCR for menu image processing).
 - **Google Gemini API** (generate accurate dish descriptions, allergen warnings, and personalized recommendations based on user preference) 
-- **Web Scraping:** Puppeteer (Node.js) or Axios (Node.js).  
+- **Web Scraping:** Puppeteer (Node.js) or Axios (Node.js).
+
+### **Coding Languages**
+- **Javascript, Typescript, Python**
 
 ### **Deployment**  
 - **Mobile App Distribution:** Expo (for React Native app distribution).  
