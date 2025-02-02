@@ -24,17 +24,17 @@ Upload a photo of a menu or paste a link to an online menu, and let Palate do th
 - **Styling:** Styled Components or React Native Stylesheet.  
 
 ### **Backend**  
-- **Node.js with Express** or **Firebase** (Firestore, Cloud Functions).  
+- **Node.js with Express**
+- **Database:** MongoDB database storing user information, food preferences, and allergens
+- **Python NLP Processing:** Used to clean and filter dish names, removing duplicates and irrelevant text
 
 ### **APIs/Tools**  
-- **Google Vision API** (OCR for menu image processing).   
-- **TensorFlow Lite** (on-device allergen detection).  
-- **Firebase Firestore** (user data and recommendations).  
+- **Google Vision API** (OCR for menu image processing).
+- **Google Gemini API** (generate accurate dish descriptions, allergen warnings, and personalized recommendations based on user preference) 
 - **Web Scraping:** Puppeteer (Node.js) or Axios (Node.js).  
 
 ### **Deployment**  
 - **Mobile App Distribution:** Expo (for React Native app distribution).  
-- **Backend Deployment:** Heroku, Vercel, or AWS Lambda.  
 
 ---
 
