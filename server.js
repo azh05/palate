@@ -1,7 +1,9 @@
+require('dotenv').config();
+const GEMINI_API_KEY = process.env.API_KEY;
+
 const express = require('express');  
 const cors = require('cors');  
-const bodyParser = require('body-parser');  
-require('dotenv').config();  
+const bodyParser = require('body-parser');   
 const { spawn } = require('child_process');
 const fs = require('fs');
 const path = require('path');
@@ -22,11 +24,8 @@ app.listen(PORT, () => {
 });
 
 // Load Google Cloud credentials
-const keyPath = "/Users/anyachen/Downloads/palate-449700-6fef05174476.json";
+const keyPath = "./google_cloud_key.json";
 process.env.GOOGLE_APPLICATION_CREDENTIALS = keyPath;
-
-// Gemini API Key
-const GEMINI_API_KEY = "AIzaSyCOlLSmUikgai4jl5zRQFj3lsblAuMg4oc"; 
 
 // Function to process OCR text with Python script
 async function filterDishesWithPython(rawText) {
@@ -63,6 +62,21 @@ async function filterDishesWithPython(rawText) {
 // Function to refine dish names using **Google Gemini API**
 async function refineDishNamesWithGemini(dishes) {
     try {
+        aiText = `Extract **only dish names** from the following list:\n\n${JSON.stringify(dishes)}\n\n` +
+        `### **Your Task:**\n` +
+        `- Remove section headers (e.g., "Side Dishes", "Dessert").\n` +
+        `- Correct any **misspellings**.\n` +
+        `- Remove the **restaurant name** unless it's part of a dish.\n` +
+        `- **Do NOT merge multiple dish names together**.\n\n` +
+        `### **Description Rules:**\n` +
+        //`- If a dish is **well-known** (e.g., "Fried Rice"), return it **without a description**.\n` +
+        `- Provide a detailed description of each dish with flavor profile, and ingredients to describe its qualities\n` +
+        `- Keep descriptions about 2 sentences long.**\n\n` +
+        `### **Format the response as a JSON array of objects like this:**\n` +
+        "```json\n" +
+        `[ { "name": "Dish Name", "description": "Brief or detailed description" } ]\n` +
+        "```";
+     // console.log(aiText);
         const response = await axios.post(
             `https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateContent?key=${GEMINI_API_KEY}`,
             {
@@ -71,20 +85,9 @@ async function refineDishNamesWithGemini(dishes) {
                         role: "user",
                         parts: [
                             {
-                                text: `Extract **only dish names** from the following list:\n\n${JSON.stringify(dishes)}\n\n` +
-                                      `### **Your Task:**\n` +
-                                      `- Remove section headers (e.g., "Side Dishes", "Dessert").\n` +
-                                      `- Correct any **misspellings**.\n` +
-                                      `- Remove the **restaurant name** unless it's part of a dish.\n` +
-                                      `- **Do NOT merge multiple dish names together**.\n\n` +
-                                      `### **Description Rules:**\n` +
-                                      `- If a dish is **well-known** (e.g., "Fried Rice"), return it **without a description**.\n` +
-                                      `- If a dish is **not well-known** (e.g., "Mixian"), provide a **detailed** description including its ingredients, cooking style, and origin.\n` +
-                                      `- Keep descriptions **concise (max 2 sentences).**\n\n` +
-                                      `### **Format the response as a JSON array of objects like this:**\n` +
-                                      "```json\n" +
-                                      `[ { "name": "Dish Name", "description": "Brief or detailed description" } ]\n` +
-                                      "```"
+                                
+                                text: aiText
+                                    
                             }
                         ]
                     }
@@ -92,12 +95,13 @@ async function refineDishNamesWithGemini(dishes) {
             }
         );
 
+
         // Extract AI response text
         let aiResponse = response.data.candidates[0].content.parts[0].text.trim();
 
         // Fix: Strip possible markdown formatting (` ```json ... ``` `)**
         aiResponse = aiResponse.replace(/^```json\n/, "").replace(/\n```$/, "").trim();
-
+        // console.log(aiResponse);
         return JSON.parse(aiResponse); // Convert AI response to JSON
     } catch (error) {
         console.error("Gemini API Error:", error);
@@ -130,15 +134,15 @@ app.post('/extract-text', async (req, res) => {
         // Extract raw detected text
         let extractedText = detections.length > 0 ? detections[0].description : "";
 
-        console.log("Raw Extracted Text:", extractedText); // Debugging
+        // console.log("Raw Extracted Text:", extractedText); // Debugging
 
         // Process extracted text with Python script
         let filteredDishes = await filterDishesWithPython(extractedText);
-        console.log("Dishes Before AI Filtering:", filteredDishes); // Debugging
+        // console.log("Dishes Before AI Filtering:", filteredDishes); // Debugging
 
         // Refine dish names with Gemini AI
         filteredDishes = await refineDishNamesWithGemini(filteredDishes);
-        console.log("Final AI-Filtered Dishes:", filteredDishes); // Debugging
+        // console.log("Final AI-Filtered Dishes:", filteredDishes); // Debugging
 
         // Delete the temporary file
         fs.unlinkSync(tempImagePath);
