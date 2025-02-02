@@ -1,48 +1,15 @@
-import { Text, View, StyleSheet, Image, Button, TouchableOpacity, Platform } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-{ /* import {
-  GoogleSignin,
-  statusCodes,
-} from '@react-native-google-signin/google-signin'; */}
+import { View, Text, StyleSheet, Pressable, Image, TouchableOpacity } from 'react-native';
+import { useRouter } from 'expo-router';
 
-export default function BruhScreen() {
-    const navigation = useNavigation();
+export default function LoginScreen() {
+  const router = useRouter();
 
+  const handleLogin = () => {
+    router.replace('/'); 
+  };
 
-    const handleGoogleSignIn = async () => {
-        alert('Button pressed!');
-        try {
-            alert('Starting Google Sign In...');
-            await GoogleSignin.configure({
-                iosClientId: '775475090794-r2qe2n51elgucqcsbom35j4dmqm00dqn.apps.googleusercontent.com',
-                webClientId: '775475090794-r2qe2n51elgucqcsbom35j4dmqm00dqn.apps.googleusercontent.com',
-                offlineAccess: true,
-            });
-
-            if (Platform.OS === 'android') {
-                await GoogleSignin.hasPlayServices();
-            }
-            
-            const userInfo = await GoogleSignin.signIn();
-            
-            alert('Sign in successful!');
-            navigation.navigate('index' as never);
-        } catch (error: any) {
-            alert('Error: ' + JSON.stringify(error));
-            if (error.code === statusCodes.SIGN_IN_CANCELLED) {
-                alert('User cancelled the login flow');
-            } else if (error.code === statusCodes.IN_PROGRESS) {
-                alert('Operation is in progress already');
-            } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
-                alert('Play services not available or outdated');
-            } else {
-                alert('Something went wrong: ' + JSON.stringify(error));
-            }
-        }
-    };
-    
-    return (
-        <View style={styles.container}>
+  return (
+    <View style={styles.container}>
             <View style={styles.logoContainer}>
                 <Image 
                     source={require('../../assets/images/palate-logo-bed.png')} 
@@ -54,7 +21,7 @@ export default function BruhScreen() {
                 />
             </View>
             <Text style={styles.text}>Let's explore your Palate.</Text>
-            <TouchableOpacity style={styles.googleButton} onPress={handleGoogleSignIn}>
+            <TouchableOpacity style={styles.googleButton} onPress={handleLogin}>
                 <Image
                     source={require('../../assets/images/google-logo.png')}
                     style={styles.googleIcon}
@@ -62,17 +29,16 @@ export default function BruhScreen() {
                 <Text style={styles.googleButtonText}>Continue with Google</Text>
             </TouchableOpacity>
             <View style={styles.authButtonsContainer}>
-                <TouchableOpacity style={[styles.authButton, styles.loginButton]}>
+                <TouchableOpacity style={[styles.authButton, styles.loginButton]} onPress={handleLogin}>
                     <Text style={[styles.authButtonText, styles.loginButtonText]}>Log In</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.authButton}>
+                <TouchableOpacity style={styles.authButton} onPress={handleLogin}>
                     <Text style={styles.authButtonText}>Sign Up</Text>
                 </TouchableOpacity>
             </View>
-        </View>
-    );
+    </ View>
+  );
 }
-
 
 const styles = StyleSheet.create({
     container: {
@@ -80,7 +46,7 @@ const styles = StyleSheet.create({
         height: 852,
         backgroundColor: '#fff',
         position: 'relative',
-    },
+    }, 
     text: {
         position: 'absolute',
         top: 326,
@@ -163,5 +129,63 @@ const styles = StyleSheet.create({
     },
     loginButtonText: {
         color: '#FFFFFF',
-    },
+    }
 });
+
+
+// return (
+//         <View style={styles.container}>
+//             <View style={styles.logoContainer}>
+//                 <Image 
+//                     source={require('../../assets/images/palate-logo-bed.png')} 
+//                     style={styles.logoBed}
+//                 />
+//                 <Image 
+//                     source={require('../../assets/images/palate-logo.png')} 
+//                     style={styles.logo}
+//                 />
+//             </View>
+//             <Text style={styles.text}>Let's explore your Palate.</Text>
+//             <TouchableOpacity style={styles.googleButton} onPress={handleGoogleSignIn}>
+//                 <Image
+//                     source={require('../../assets/images/google-logo.png')}
+//                     style={styles.googleIcon}
+//                 />
+//                 <Text style={styles.googleButtonText}>Continue with Google</Text>
+//             </TouchableOpacity>
+//             <View style={styles.authButtonsContainer}>
+//                 <TouchableOpacity style={[styles.authButton, styles.loginButton]}>
+//                     <Text style={[styles.authButtonText, styles.loginButtonText]}>Log In</Text>
+//                 </TouchableOpacity>
+//                 <TouchableOpacity style={styles.authButton}>
+//                     <Text style={styles.authButtonText}>Sign Up</Text>
+//                 </TouchableOpacity>
+//             </View>
+//         </View>
+//     );
+
+/* 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+  },
+  title: {
+    fontSize: 32,
+    fontFamily: 'Bodoni-Bold',
+    marginBottom: 32,
+  },
+  loginButton: {
+    backgroundColor: '#e9c46a',
+    paddingHorizontal: 32,
+    paddingVertical: 16,
+    borderRadius: 8,
+  },
+  loginText: {
+    fontSize: 18,
+    fontFamily: 'Bodoni-Bold',
+    color: '#000',
+  },
+}); */

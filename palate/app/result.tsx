@@ -9,19 +9,19 @@ import AvoidDropdowns from '../components/AvoidDropdowns';
 
 const carouselItems = [
   {
-    title: "First Item",
-    body: "Description here",
-    imgUrl: "https://example.com/image.jpg"
+    title: "Chicken",
+    body: "Chicken Taco",
+    imgUrl: "https://tarateaspoon.com/wp-content/uploads/2024/04/Beef-Taco-Meat-sz-05-sq-feature.jpg"
   },
   {
-    title: "Second Item",
-    body: "Description here",
-    imgUrl: "https://example.com/image.jpg"
+    title: "Kale",
+    body: "Kale Salad",
+    imgUrl: "https://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/leafy-green.png"
   },
   {
-    title: "Third Item",
-    body: "Description here",
-    imgUrl: "https://example.com/image.jpg"
+    title: "Gluten Free Pizza",
+    body: "Pizza (no gluten)",
+    imgUrl: "https://www.glutenfreepalate.com/wp-content/uploads/2018/08/Gluten-Free-Pizza-3.2-735x486.jpg"
   },
   // ... more items
 ];
@@ -59,31 +59,21 @@ const otherItems = [
 
 const avoidItems = [
   {
-    title: "Spicy Foods",
+    title: "Lobster (🔥)",
     content: "These dishes contain high levels of spice that might not suit your palate.",
     items: [
-      "Hot Wings",
-      "Curry (High Spice)",
-      "Jalapeño Poppers",
-      "Spicy Ramen"
     ]
   },
   {
-    title: "Dairy Products",
+    title: "Ice Cream (🌶️)",
     content: "Contains lactose and milk proteins that you might want to avoid.",
     items: [
-      "Heavy Cream Sauces",
-      "Cheese-based Dishes",
-      "Milk-based Desserts"
     ]
   },
   {
-    title: "Seafood",
+    title: "Salmon",
     content: "Fresh seafood dishes that might not match your preferences.",
     items: [
-      "Raw Oysters",
-      "Sushi with Raw Fish",
-      "Shellfish Dishes"
     ]
   }
 ];
@@ -107,7 +97,16 @@ export default function RecommendationsScreen() {
       const data = JSON.parse(params.recommendations as string);
       
       if(data && data.dishes) {
-        // Take first 3 dishes and format them for carousel
+        console.log(data.dishes)
+        if(JSON.stringify(data.dishes) === JSON.stringify({"dishes": []})) {
+          setRecommendations({
+            carouselItems: carouselItems,
+            avoidItems: avoidItems,
+            otherItems: otherItems
+          });
+          return;
+        }  else {
+          // Take first 3 dishes and format them for carousel
         const carouselDishes = data.dishes.slice(2, 5).map((dish: {name: string, description: string, image: string}) => ({
           title: dish.name,
           body: dish.description || "No description available",
@@ -137,6 +136,9 @@ export default function RecommendationsScreen() {
           avoidItems: avoidDishes,
           otherItems: randomOtherDishes
         });
+
+        }
+        
       }
     }
   }, [params.recommendations]);

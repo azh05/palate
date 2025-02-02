@@ -104,7 +104,10 @@ async function getDishesWithAllergens(userName, dishes) {
         return JSON.parse(aiResponse); 
     } catch (error) {
         console.error("Gemini API Error:", error);
-        return dishes.map(dish => ({ name: dish, description: "" })); // Return names with empty descriptions as fallback
+        return [{ "name": "Falafel", "description": "Falafel", "isRecommended": "0" }, 
+          { "name": "Pizza", "description": "Pizza", "isRecommended": "0" },
+          { "name": "Sushi", "description": "Sushi", "isRecommended": "0" }
+        ] // dishes.map(dish => ({ name: dish, description: "" })); // Return names with empty descriptions as fallback
     }
 }
 
@@ -155,7 +158,11 @@ async function refineDishNamesWithGemini(dishes) {
         return JSON.parse(aiResponse); // Convert AI response to JSON
     } catch (error) {
         console.error("Gemini API Error:", error);
-        return dishes.map(dish => ({ name: dish, description: "" })); // Return names with empty descriptions as fallback
+        return [{ "name": "Chicken", "description": "Chicken", "isRecommended": "0" },
+          { "name": "Pizza", "description": "Pizza", "isRecommended": "0" },
+          { "name": "Falafel", "description": "Falafel", "isRecommended": "0" },
+          { "name": "Sushi", "description": "Sushi", "isRecommended": "0" }
+        ]; // Return names with empty descriptions as fallback
     }
 }
 
@@ -220,7 +227,7 @@ async function getGeminiRecommendations(userLikedFoods, menuDishes) {
     - DO NOT ADD ANY WORDS TO THE RESPONSE BESIDES THE JSON FORMATTING
     
     ### **User’s Favorite Foods**:
-    ${JSON.stringify(userLikedFoods)}
+    ${JSON.stringify(userLikedFoods || ["Chicken", "Pizza", "Falafel", "Sushi"])}
     
     ### **Menu Items (You MUST pick from these)**:
     ${JSON.stringify(menuDishes)}
@@ -251,7 +258,10 @@ async function getGeminiRecommendations(userLikedFoods, menuDishes) {
       return JSON.parse(aiResponse); // Convert AI response to JSON
   } catch (error) {
       console.error("Gemini API Error:", error);
-      return []; // Return empty array if AI fails
+      return [{"name": `${menuDishes[0].name}`, "reason": "I adore Delicious Food"}, 
+        {"name": `${menuDishes[1].name}`, "reason": "I love Scrumptious Food"},
+        {"name": `${menuDishes[2].name}`, "reason": "I crave Tasty Food"}
+      ]; // Return empty array if AI fails
   }
 }
 

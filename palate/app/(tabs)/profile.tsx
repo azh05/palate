@@ -28,11 +28,11 @@ interface Allergen {
 
 export default function ProfileScreen() {
   const [savedDishes, setSavedDishes] = useState<Dish[]>([
-    { id: 1, name: 'Mac & Cheese', date: 'Jan 10, 2025' },
-    { id: 2, name: 'BBQ Baby Back Ribs', date: 'Jan 13, 2025' },
+    { id: 1, name: 'Pizza', date: 'Jan 10, 2025' },
+    { id: 2, name: 'Chicken', date: 'Jan 13, 2025' },
     { id: 3, name: 'Pad See-Ew', date: 'Jan 20, 2025' },
     { id: 4, name: 'Pad Kra Pao', date: 'Jan 27, 2025' },
-    { id: 5, name: 'Pad Kra Pao', date: 'Jan 27, 2025' },
+    { id: 8, name: 'Chicken Alfredo', date: 'Jan 30, 2025' },
   ]);
   const [lastRemovedDish, setLastRemovedDish] = useState<Dish | null>(null);
   const [showUndo, setShowUndo] = useState(false);
@@ -47,8 +47,9 @@ export default function ProfileScreen() {
     { id: 'bitter', name: 'bitter', selected: false },
     { id: 'vegan', name: 'vegan', selected: false },
     { id: 'vegetarian', name: 'vegetarian', selected: false },
-    { id: 'italian', name: 'italian', selected: false },
-    { id: 'chinese', name: 'chinese', selected: false },
+    { id: 'soft', name: 'soft', selected: false },
+    { id: 'crunchy', name: 'crunchy', selected: false },
+    { id: 'carnivorous', name: 'carnivorous', selected: false },
   ]);
   const [showAllergensDropdown, setShowAllergensDropdown] = useState(false);
   const [allergens, setAllergens] = useState<Allergen[]>([
@@ -171,10 +172,12 @@ export default function ProfileScreen() {
         return require('../../assets/images/vegan-icon.png');
       case 'vegetarian':
         return require('../../assets/images/vegetarian-icon.png');
-      case 'italian':
+      case 'soft':
         return require('../../assets/images/italian-icon.png');
-      case 'chinese':
+      case 'crunchy':
         return require('../../assets/images/chinese-icon.png');
+      case 'carnivorous':
+        return require('../../assets/images/vegan-icon.png');
     }
   };
 
@@ -261,7 +264,7 @@ export default function ProfileScreen() {
         </View>
 
         <View style={styles.allergensHeader}>
-          <Text style={styles.allergens}>My Allergens</Text>
+          <Text style={styles.allergens}>My Dietary Senstivities</Text>
           <Pressable 
             style={styles.editButton}
             onPress={() => setShowAllergensDropdown(!showAllergensDropdown)}
