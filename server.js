@@ -95,7 +95,7 @@ async function refineDishNamesWithGemini(dishes) {
         // Extract AI response text
         let aiResponse = response.data.candidates[0].content.parts[0].text.trim();
 
-        // 🔥 **Fix: Strip possible markdown formatting (` ```json ... ``` `)**
+        // Fix: Strip possible markdown formatting (` ```json ... ``` `)**
         aiResponse = aiResponse.replace(/^```json\n/, "").replace(/\n```$/, "").trim();
 
         return JSON.parse(aiResponse); // Convert AI response to JSON
