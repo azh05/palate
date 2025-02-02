@@ -20,7 +20,7 @@ Upload a photo of a menu or paste a link to an online menu, and let Palate do th
 
 ### **Frontend (Mobile)**  
 - **Framework:** React Native (cross-platform for iOS and Android).  
-- **UI Components:** React Native Paper or NativeBase.  
+- **UI Components:** React Native and Navigation.
 - **Styling:** Styled Components or React Native Stylesheet.  
 
 ### **Backend**  
