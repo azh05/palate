@@ -1,9 +1,9 @@
-# palate  
+# Palate  
 **Your Guide to Smarter Dining**  
 
-PlatePal is a mobile app designed to revolutionize the way you explore menus, discover new dishes, and make sustainable dining choices. Whether you're trying a new cuisine, managing dietary restrictions, or simply looking for your next favorite meal, PlatePal is here to help.  
+Palate is a mobile app designed to revolutionize the way you explore menus, discover new dishes, and make sustainable dining choices. Whether you're trying a new cuisine, managing dietary restrictions, or simply looking for your next favorite meal, Palate is here to help.  
 
-Upload a photo of a menu or paste a link to an online menu, and let PlatePal do the rest. Our app uses cutting-edge technology to translate foreign-language menus, detect allergens, and provide personalized dish recommendations based on your taste preferences.  
+Upload a photo of a menu or paste a link to an online menu, and let Palate do the rest. Our app uses cutting-edge technology to translate foreign-language menus, detect allergens, and provide personalized dish recommendations based on your taste preferences.  
 
 ---
 
@@ -41,7 +41,7 @@ Upload a photo of a menu or paste a link to an online menu, and let PlatePal do 
 ---
 
 ## Why palate?  
-- **Reduce Food Waste:** By helping users choose dishes they’ll love, PlatePal minimizes uneaten meals and promotes sustainability.  
+- **Reduce Food Waste:** By helping users choose dishes they’ll love, Palate minimizes uneaten meals and promotes sustainability.  
 - **Explore New Cultures:** Break down language barriers and discover the stories behind global cuisines.  
 - **Dine Smarter:** Make informed choices with allergen detection and personalized recommendations.  
 
