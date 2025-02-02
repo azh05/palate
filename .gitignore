@@ -1,2 +1,4 @@
 .env
 google_cloud_key.json
+
+./scrape-menu/.env
