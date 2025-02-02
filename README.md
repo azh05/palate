@@ -8,8 +8,7 @@ Upload a photo of a menu or paste a link to an online menu, and let Palate do th
 ---
 
 ## Features  
-- **Menu Upload & Scraping:** Upload a photo of a physical menu or paste a link to an online menu.  
-- **AI-Powered Translation:** Instantly translate foreign-language menus into your preferred language.  
+- **Menu Upload & Scraping:** Upload a photo of a physical menu or paste a link to an online menu. 
 - **Allergen Detection:** Automatically flag common allergens like nuts, gluten, and dairy.  
 - **Personalized Recommendations:** Get dish suggestions tailored to your flavor profile and dietary preferences.  
 - **Sustainability Impact Tracker:** See how your choices help reduce food waste and support sustainable dining.  
