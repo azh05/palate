@@ -9,7 +9,12 @@ import MyTabBar from '../../components/TabBar';
 
 export default function TabLayout() {
   return (
-    <Tabs tabBar={props => <MyTabBar {...props} />}>
+    <Tabs
+      screenOptions={{
+        headerShown: false,  // This removes the header
+      }}
+      tabBar={(props) => <MyTabBar {...props} />}
+    >
       <Tabs.Screen name="profile" options={{ title: 'Profile' }} /> 
       <Tabs.Screen name="index" options={{ title: 'Search' }} />
       <Tabs.Screen name="settings" options={{ title: 'Settings' }} />

@@ -1,14 +1,14 @@
-import { Text, View, StyleSheet } from 'react-native';
-import React from 'react';
-// import { Link } from 'expo-router'; 
+import { View, Text, StyleSheet } from 'react-native';
+import SearchBar from '../../components/SearchBar';
+import ImageUploadButton from '../../components/ImageUploadButton';
 
-export default function Index() {
+export default function IndexPage() {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Home screen</Text>
-      {/*<Link href="/about" style={styles.button}>
-        Go to About screen
-      </Link>*/}
+      <Text style={styles.title}>What's on your Palate?</Text>
+      <SearchBar />
+      <Text style={styles.orText}>or</Text>
+      <ImageUploadButton />
     </View>
   );
 }
@@ -16,16 +16,30 @@ export default function Index() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#25292e',
+    padding: 20,
+    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
   },
-  text: {
-    color: '#fff',
+  title: {
+    fontFamily: 'Bodoni-Bold',
+    fontSize: 40,
+    fontWeight: '700',
+    color: '#000',
+    width: 353,
+    height: 97,
+    lineHeight: 40,  // setting to fontSize for 'normal' line height
+    fontStyle: 'normal',
   },
-  button: {
-    fontSize: 20,
-    textDecorationLine: 'underline',
-    color: '#fff',
+  orText: {
+    alignSelf: 'stretch',
+    color: '#000',
+    textAlign: 'center',
+    fontFamily: 'Bodoni-Bold',  // using our bold font
+    fontSize: 16,
+    fontStyle: 'normal',
+    fontWeight: '700',
+    lineHeight: 16,  // normal line height
+    marginVertical: 20,
   },
 });

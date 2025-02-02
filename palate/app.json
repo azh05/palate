@@ -36,6 +36,14 @@
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "fonts": [
+      {
+        "asset": "assets/fonts/BodoniflfRoman-vmAD.ttf"
+      },
+      {
+        "asset": "assets/fonts/BodoniflfBold-MVZx.ttf"
+      }
+    ]
   }
 }
