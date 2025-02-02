@@ -1,4 +1,4 @@
-import { Text, View, StyleSheet, Image, Button, TouchableOpacity } from 'react-native';
+import { Text, View, StyleSheet, Image, Button, TouchableOpacity, Platform } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import {
   GoogleSignin,
@@ -8,8 +8,37 @@ import {
 export default function ProfileScreen() {
     const navigation = useNavigation();
 
-    const handleGoogleSignIn = () => {
-        console.log('Google sign in');
+
+    const handleGoogleSignIn = async () => {
+        alert('Button pressed!');
+        try {
+            alert('Starting Google Sign In...');
+            await GoogleSignin.configure({
+                iosClientId: '775475090794-r2qe2n51elgucqcsbom35j4dmqm00dqn.apps.googleusercontent.com',
+                webClientId: '775475090794-r2qe2n51elgucqcsbom35j4dmqm00dqn.apps.googleusercontent.com',
+                offlineAccess: true,
+            });
+
+            if (Platform.OS === 'android') {
+                await GoogleSignin.hasPlayServices();
+            }
+            
+            const userInfo = await GoogleSignin.signIn();
+            
+            alert('Sign in successful!');
+            navigation.navigate('index' as never);
+        } catch (error: any) {
+            alert('Error: ' + JSON.stringify(error));
+            if (error.code === statusCodes.SIGN_IN_CANCELLED) {
+                alert('User cancelled the login flow');
+            } else if (error.code === statusCodes.IN_PROGRESS) {
+                alert('Operation is in progress already');
+            } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
+                alert('Play services not available or outdated');
+            } else {
+                alert('Something went wrong: ' + JSON.stringify(error));
+            }
+        }
     };
     
     return (
@@ -40,23 +69,6 @@ export default function ProfileScreen() {
                     <Text style={styles.authButtonText}>Sign Up</Text>
                 </TouchableOpacity>
             </View>
-        </View>
-    );
-}
-
-const ExplorePalateScreen = () => {
-    const navigation = useNavigation();
-
-    //google sign in
-    const handleGoogleSignIn = () => {
-        console.log('Google sign in');
-    }
-    
-
-    return (
-        <View style={styles.container}>
-            <Text style={styles.text}>Let's explore your Palate.</Text>
-            <Button title="Google Sign In" onPress={handleGoogleSignIn} />
         </View>
     );
 }

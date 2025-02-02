@@ -14,6 +14,18 @@ interface Dish {
   date: string;
 }
 
+interface Preference {
+  id: string;
+  name: string;
+  selected: boolean;
+}
+
+interface Allergen {
+  id: string;
+  name: string;
+  selected: boolean;
+}
+
 export default function ProfileScreen() {
   const [savedDishes, setSavedDishes] = useState<Dish[]>([
     { id: 1, name: 'Mac & Cheese', date: 'Jan 10, 2025' },
@@ -26,6 +38,29 @@ export default function ProfileScreen() {
   const [showUndo, setShowUndo] = useState(false);
   const slideAnims = useRef(new Map()).current;
   const fadeAnim = useRef(new Animated.Value(1)).current;
+  const [showPreferencesDropdown, setShowPreferencesDropdown] = useState(false);
+  const [preferences, setPreferences] = useState<Preference[]>([
+    { id: 'western', name: 'western', selected: false },
+    { id: 'salty', name: 'salty', selected: false },
+    { id: 'sweet', name: 'sweet', selected: false },
+    { id: 'savory', name: 'savory', selected: false },
+    { id: 'bitter', name: 'bitter', selected: false },
+    { id: 'vegan', name: 'vegan', selected: false },
+    { id: 'vegetarian', name: 'vegetarian', selected: false },
+    { id: 'italian', name: 'italian', selected: false },
+    { id: 'chinese', name: 'chinese', selected: false },
+  ]);
+  const [showAllergensDropdown, setShowAllergensDropdown] = useState(false);
+  const [allergens, setAllergens] = useState<Allergen[]>([
+    { id: 'peanut', name: 'peanut', selected: false },
+    { id: 'shellfish', name: 'shellfish', selected: false },
+    { id: 'soybean', name: 'soybean', selected: false },
+    { id: 'treenut', name: 'tree nut', selected: false },
+    { id: 'milk', name: 'milk', selected: false },
+    { id: 'eggs', name: 'eggs', selected: false },
+    { id: 'wheat', name: 'wheat', selected: false },
+    { id: 'sesame', name: 'sesame', selected: false },
+  ]);
 
   // Initialize animation values for each dish
   savedDishes.forEach(dish => {
@@ -114,6 +149,62 @@ export default function ProfileScreen() {
     }
   };
 
+  const togglePreference = (id: string) => {
+    setPreferences(preferences.map(pref => 
+      pref.id === id ? { ...pref, selected: !pref.selected } : pref
+    ));
+  };
+
+  const getPreferenceIcon = (id: string) => {
+    switch (id) {
+      case 'western':
+        return require('../../assets/images/western-icon.png');
+      case 'salty':
+        return require('../../assets/images/salty-icon.png');
+      case 'sweet':
+        return require('../../assets/images/sweet-icon.png');
+      case 'savory':
+        return require('../../assets/images/savory-icon.png');
+      case 'bitter':
+        return require('../../assets/images/bitter-icon.png');
+      case 'vegan':
+        return require('../../assets/images/vegan-icon.png');
+      case 'vegetarian':
+        return require('../../assets/images/vegetarian-icon.png');
+      case 'italian':
+        return require('../../assets/images/italian-icon.png');
+      case 'chinese':
+        return require('../../assets/images/chinese-icon.png');
+    }
+  };
+
+  const toggleAllergen = (id: string) => {
+    setAllergens(allergens.map(allergen => 
+      allergen.id === id ? { ...allergen, selected: !allergen.selected } : allergen
+    ));
+  };
+
+  const getAllergenIcon = (id: string) => {
+    switch (id) {
+      case 'peanut':
+        return require('../../assets/images/peanut-icon.png');
+      case 'shellfish':
+        return require('../../assets/images/shellfish-icon.png');
+      case 'soybean':
+        return require('../../assets/images/soybean-icon.png');
+      case 'treenut':
+        return require('../../assets/images/treenut-icon.png');
+      case 'milk':
+        return require('../../assets/images/milk-icon.png');
+      case 'eggs':
+        return require('../../assets/images/eggs-icon.png');
+      case 'wheat':
+        return require('../../assets/images/wheat-icon.png');
+      case 'sesame':
+        return require('../../assets/images/sesame-icon.png');
+    }
+  };
+
   return (
     <ScrollView style={styles.container}>
       <View style={styles.contentContainer}>
@@ -123,68 +214,96 @@ export default function ProfileScreen() {
         />
         <Text style={styles.name}>Joe Bruin</Text>
 
-        <Text style={styles.preferences}>My Preferences</Text>
-        <View style={styles.flavorContainer}>
-          <View style={styles.flavorButton}>
-            <Image 
-              source={require('../../assets/images/western-icon.png')}
-              style={styles.flavorIcon}
-            />
-            <Text style={styles.flavorText}>western</Text>
-          </View>
-          <View style={styles.flavorButton}>
-            <Image 
-              source={require('../../assets/images/salty-icon.png')}
-              style={styles.flavorIcon}
-            />
-            <Text style={styles.flavorText}>salty</Text>
-          </View>
-          <View style={styles.flavorButton}>
-            <Image 
-              source={require('../../assets/images/sweet-icon.png')}
-              style={styles.flavorIcon}
-            />
-            <Text style={styles.flavorText}>sweet</Text>
-          </View>
-          <View style={styles.flavorButton}>
-            <Image 
-              source={require('../../assets/images/bitter-icon.png')}
-              style={styles.flavorIcon}
-            />
-            <Text style={styles.flavorText}>bitter</Text>
-          </View>
+        <View style={styles.preferencesHeader}>
+          <Text style={styles.preferences}>My Preferences</Text>
+          <Pressable 
+            style={styles.editButton}
+            onPress={() => setShowPreferencesDropdown(!showPreferencesDropdown)}
+          >
+            <Text style={styles.editButtonText}>
+              {showPreferencesDropdown ? 'Done' : 'Edit'}
+            </Text>
+          </Pressable>
         </View>
 
-        <Text style={styles.allergens}>My Allergens</Text>
+        {showPreferencesDropdown && (
+          <View style={styles.dropdownContainer}>
+            {preferences.map((pref) => (
+              <Pressable
+                key={pref.id}
+                style={[
+                  styles.dropdownItem,
+                  pref.selected && styles.dropdownItemSelected
+                ]}
+                onPress={() => togglePreference(pref.id)}
+              >
+                <Text style={[
+                  styles.dropdownItemText,
+                  pref.selected && styles.dropdownItemTextSelected
+                ]}>
+                  {pref.name}
+                </Text>
+              </Pressable>
+            ))}
+          </View>
+        )}
+
+        <View style={styles.flavorContainer}>
+          {preferences.filter(pref => pref.selected).map((pref) => (
+            <View key={pref.id} style={styles.flavorButton}>
+              <Image 
+                source={getPreferenceIcon(pref.id)}
+                style={styles.flavorIcon}
+              />
+              <Text style={styles.flavorText}>{pref.name}</Text>
+            </View>
+          ))}
+        </View>
+
+        <View style={styles.allergensHeader}>
+          <Text style={styles.allergens}>My Allergens</Text>
+          <Pressable 
+            style={styles.editButton}
+            onPress={() => setShowAllergensDropdown(!showAllergensDropdown)}
+          >
+            <Text style={styles.editButtonText}>
+              {showAllergensDropdown ? 'Done' : 'Edit'}
+            </Text>
+          </Pressable>
+        </View>
+
+        {showAllergensDropdown && (
+          <View style={styles.dropdownContainer}>
+            {allergens.map((allergen) => (
+              <Pressable
+                key={allergen.id}
+                style={[
+                  styles.dropdownItem,
+                  allergen.selected && styles.dropdownItemSelected
+                ]}
+                onPress={() => toggleAllergen(allergen.id)}
+              >
+                <Text style={[
+                  styles.dropdownItemText,
+                  allergen.selected && styles.dropdownItemTextSelected
+                ]}>
+                  {allergen.name}
+                </Text>
+              </Pressable>
+            ))}
+          </View>
+        )}
+
         <View style={styles.allergenContainer}>
-          <View style={styles.allergenButton}>
-            <Image 
-              source={require('../../assets/images/peanut-icon.png')}
-              style={styles.allergenIcon}
-            />
-            <Text style={styles.allergenText}>peanut</Text>
-          </View>
-          <View style={styles.allergenButton}>
-            <Image 
-              source={require('../../assets/images/shellfish-icon.png')}
-              style={styles.allergenIcon}
-            />
-            <Text style={styles.allergenText}>shellfish</Text>
-          </View>
-          <View style={styles.allergenButton}>
-            <Image 
-              source={require('../../assets/images/soybean-icon.png')}
-              style={styles.allergenIcon}
-            />
-            <Text style={styles.allergenText}>soybean</Text>
-          </View>
-          <View style={styles.allergenButton}>
-            <Image 
-              source={require('../../assets/images/treenut-icon.png')}
-              style={styles.allergenIcon}
-            />
-            <Text style={styles.allergenText}>tree nut</Text>
-          </View>
+          {allergens.filter(allergen => allergen.selected).map((allergen) => (
+            <View key={allergen.id} style={styles.allergenButton}>
+              <Image 
+                source={getAllergenIcon(allergen.id)}
+                style={styles.allergenIcon}
+              />
+              <Text style={styles.allergenText}>{allergen.name}</Text>
+            </View>
+          ))}
         </View>
 
         <Text style={styles.savedDishes}>Saved Dishes</Text>
@@ -259,36 +378,81 @@ const styles = StyleSheet.create({
     fontWeight: 700,
     fontFamily: 'BodoniFLF',
     fontStyle: 'normal',
-    position: 'absolute',
-    top: 214,
+    marginTop: 16,
     textAlign: 'center',
+    width: '100%',
+    left: 0,
   },
   profile: {
     width: 110,
     height: 110,
-    top: 88,
+    marginTop: 88,
     alignSelf: 'center',
     borderRadius: 55,
   },
+  preferencesHeader: {
+    marginTop: 16,
+    marginHorizontal: 20,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
   preferences: {
-    position: 'absolute',
     color: '#000',
     fontFamily: 'BodoniFLF',
     fontSize: 24,
-    fontWeight: 700,
-    top: 267,
-    left: 20,
+    fontWeight: '700',
+  },
+  editButton: {
+    backgroundColor: '#D9D9D9',
+    paddingHorizontal: 12,
+    paddingVertical: 4,
+    borderRadius: 16,
+  },
+  editButtonText: {
+    color: '#000',
+    fontFamily: 'BodoniFLF',
+    fontSize: 14,
+    fontWeight: '500',
+  },
+  dropdownContainer: {
+    marginHorizontal: 20,
+    marginTop: 8,
+    backgroundColor: '#fff',
+    borderRadius: 8,
+    padding: 8,
+    elevation: 4,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    zIndex: 1000,
+  },
+  dropdownItem: {
+    padding: 12,
+    borderRadius: 6,
+    marginVertical: 2,
+  },
+  dropdownItemSelected: {
+    backgroundColor: '#E9C46A',
+  },
+  dropdownItemText: {
+    fontFamily: 'BodoniFLF',
+    fontSize: 16,
+    color: '#000',
+  },
+  dropdownItemTextSelected: {
+    fontWeight: '700',
   },
   flavorContainer: {
-    position: 'absolute',
-    top: 311,
-    left: 20,
+    marginTop: 16,
+    marginHorizontal: 20,
     display: 'flex',
     flexDirection: 'row',
     flexWrap: 'wrap',
     gap: 10,
     width: 169 * 2 + 10,
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     alignItems: 'center',
   },
   flavorButton: {
@@ -311,25 +475,28 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '500',
   },
+  allergensHeader: {
+    marginTop: 16,
+    marginHorizontal: 20,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
   allergens: {
-    position: 'absolute',
     color: '#000',
     fontFamily: 'BodoniFLF',
     fontSize: 24,
     fontWeight: 700,
-    top: 415,
-    left: 20,
   },
   allergenContainer: {
-    position: 'absolute',
-    top: 459,
-    left: 20,
+    marginTop: 16,
+    marginHorizontal: 20,
     display: 'flex',
     flexDirection: 'row',
     flexWrap: 'wrap',
     gap: 10,
     width: 169 * 2 + 10,
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     alignItems: 'center',
   },
   allergenButton: {
@@ -355,20 +522,17 @@ const styles = StyleSheet.create({
     fontWeight: '500',
   },
   savedDishes: {
-    position: 'absolute',
     color: '#000',
     fontFamily: 'BodoniFLF',
     fontSize: 24,
     fontWeight: 700,
-    top: 563,
-    left: 20,
+    marginTop: 16,
+    marginLeft: 20,
   },
   dishesContainer: {
-    position: 'absolute',
-    top: 563 + 40,
-    left: 20,
+    marginTop: 16,
+    marginHorizontal: 20,
     width: 353,
-    height: 200,
   },
   dishItem: {
     width: 353,

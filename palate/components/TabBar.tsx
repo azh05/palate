@@ -38,7 +38,7 @@ export default function MyTabBar({ state, descriptors, navigation }: BottomTabBa
             route={route}
             isFocused={isFocused}
             options={options}
-            href={buildHref(route.name, route.params)}
+            href={buildHref(route.name, route.params) || ''}
             onPress={onPress}
             onLongPress={onLongPress}
             color={colors.text}
