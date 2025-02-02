@@ -25,7 +25,8 @@ async function addDefaultUser() {
 
     const defaultUser = {
         name: "John",
-        flavorProfile: ["Pad Thai", "Pho", "Tacos al Pastor"]
+        flavorProfile: ["Pad Thai", "Pho", "Tacos al Pastor"],
+        allergens: ["peanut"]
     };
 
     try {

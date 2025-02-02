@@ -62,6 +62,54 @@ async function filterDishesWithPython(rawText) {
 }
 
 // Function to refine dish names using **Google Gemini API**
+async function getDishesWithAllergens(userName, dishes) {
+    const user = await getUser(userName);
+    allergens = user.allergens;
+    console.log(allergens);
+
+    try {
+      aiText = `Extract **only dish names** from the following list:\n\n${JSON.stringify(dishes)}\n\n` +
+      `Based on these allergens:\n\n${JSON.stringify(allergens)}\n\n` +
+      `### **Your Task:**\n` +
+      `- Given the list of dishes, identify all possible allergen containing foods BASED ON PROVIDED ALLERGENS ONLY ` +
+      `### **Format the response as a JSON array of objects like this:**\n` +
+      `- DO NOT ADD ANY WORDS TO THE RESPONSE BESIDES THE JSON FORMATTING` +
+        "```json\n" +
+        `[ { "name": "Dish Name", "allergens" : ["allergen1", "allergen2"] in the dish } ]\n` +
+        "```";
+
+        const response = await axios.post(
+            `https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateContent?key=${GEMINI_API_KEY}`,
+            {
+                contents: [
+                    {
+                        role: "user",
+                        parts: [
+                            {   
+                              text: aiText    
+                            }
+                        ]
+                    }
+                ]
+            }
+        );
+
+
+        // Extract AI response text
+        let aiResponse = response.data.candidates[0].content.parts[0].text.trim();
+
+        // Fix: Strip possible markdown formatting (` ```json ... ``` `)**
+        aiResponse = aiResponse.replace(/^```json\n/, "").replace(/\n```$/, "").trim();
+        console.log(aiResponse);
+        return JSON.parse(aiResponse); 
+    } catch (error) {
+        console.error("Gemini API Error:", error);
+        return dishes.map(dish => ({ name: dish, description: "" })); // Return names with empty descriptions as fallback
+    }
+}
+
+
+// Function to refine dish names using **Google Gemini API**
 async function refineDishNamesWithGemini(dishes) {
     try {
         aiText = `Extract **only dish names** from the following list:\n\n${JSON.stringify(dishes)}\n\n` +
@@ -76,6 +124,7 @@ async function refineDishNamesWithGemini(dishes) {
         `- Keep descriptions about 2 sentences long and include new info not in name of dish.**\n\n` +
         `### **Format the response as a JSON array of objects like this:**\n` +
         `- Keep every thing in isRecommended as 0` +
+        `- DO NOT ADD ANY WORDS TO THE RESPONSE BESIDES THE JSON FORMATTING` +
         "```json\n" +
         `[ { "name": "Dish Name", "description": "Brief or detailed description", "isRecommended": "0" } ]\n` +
         "```";
@@ -150,6 +199,7 @@ async function extractText(imageBase64) {
         return filteredDishes;
 
     } catch (error) {
+        // console.error("Error extracting text:", error);
         return false;
     }
   }
@@ -159,14 +209,15 @@ async function getGeminiRecommendations(userLikedFoods, menuDishes) {
 
   try {
     const prompt = `
-    You are an AI-powered food recommendation system. A user has shared their favorite dishes, 
-    and we have extracted menu items from a restaurant.
+    You are an AI-powered food recommendation system. A user has shared userLikedFoods, 
+    and we have extracted menu items menuDishes from a restaurant. Make it a personalized message to the person with reasoning on why they would prefer one over the other given the provided user's favorite foods (userLikedFoods)
     
     ### **Your Task**:
-    - Recommend **exactly 3 dishes** from the **provided menu items ONLY**.
+    - Recommend **exactly 3 dishes** from the **provided menu items ONLY** based on the given user's favorite food.
     - Compare dishes based on **flavors, ingredients, regional influences, and cooking styles**.
     - Ensure **diversity** in recommendations (e.g., don’t recommend only noodle dishes unless the user only likes noodles).
     - **Do NOT make up new dishes**—you must select from the provided menu items.
+    - DO NOT ADD ANY WORDS TO THE RESPONSE BESIDES THE JSON FORMATTING
     
     ### **User’s Favorite Foods**:
     ${JSON.stringify(userLikedFoods)}
@@ -252,12 +303,8 @@ app.post("/api/menu/compare-dishes", async (req, res) => {
 
 // **POST: Recommend 3 dishes based on user’s preferences**
 app.post("/api/menu/recommend-dishes", async (req, res) => {
-  const { userName } = req.query;
-  const { imageBase64 } = req.body;
+  const { userName, imageBase64 } = req.body;
   dishes = await extractText(imageBase64);
-  // console.log(dishes);
-  // console.log(userName);
-  // console.log(imageBase64);
 
   if (!userName || !dishes) {
       return res.status(400).json({ error: "User name and dishes are required" });
@@ -269,7 +316,19 @@ app.post("/api/menu/recommend-dishes", async (req, res) => {
           return res.status(404).json({ error: "User not found" });
       }
 
+      const allergens = await getDishesWithAllergens(userName, dishes);
+
+      for(i = 0; i < dishes.length; i++) {
+        for(j = 0; j < allergens.length; j++) {
+          if (dishes[i].name == allergens[j].name) {
+            dishes[i].description = allergens[j].allergens;
+            dishes[i].isRecommended = "-1";
+          }
+        }
+      }
+
       const recommendations = await getGeminiRecommendations(user.likedFoods, dishes);
+      
 
       for(i = 0; i < dishes.length; i++) {
         for(j = 0; j < recommendations.length; j++) {
@@ -303,174 +362,38 @@ app.post("/api/user/feedback", async (req, res) => {
   }
 });
 
-/*
-const { MongoClient } = require('mongodb');
+// POST: Recommend dishes from saved menu data
+app.post("/api/menu/recommend-from-saved", async (req, res) => {
+  const { userName } = req.query;
 
-// MongoDB connection URI
-const uri = process.env.MONGODB_URI;
-const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-
-// Connect to MongoDB
-async function connectToMongoDB() {
   try {
-    await client.connect();
-    console.log('Connected to MongoDB');
-  } catch (error) {
-    console.error('Error connecting to MongoDB:', error);
-  }
-}
+    // Read menu data from JSON file
+    const menuData = JSON.parse(fs.readFileSync('./scrape-menu/menuData.json', 'utf8'));
 
-// Call the connect function
-connectToMongoDB();
-
-async function addDefaultUser() {
-    const db = client.db('palate'); // Replace 'palate' with your database name
-    const usersCollection = db.collection('users');
-  
-    const defaultUser = {
-      name: 'John',
-      likedFoods: ['Pad Thai', 'Pho', 'Tacos al Pastor'],
-      dislikedFoods: ['Kimchi', 'Seaweed Salad'],
-    };
-  
-    try {
-      await usersCollection.insertOne(defaultUser);
-      console.log('Default user added:', defaultUser);
-    } catch (error) {
-      console.error('Error adding default user:', error);
-    }
-  }
-  
-  // Call the function to add the default user
-  addDefaultUser();
-
-  app.get('/api/user/liked-foods', async (req, res) => {
-    const { userName } = req.query;
-  
-    if (!userName) {
-      return res.status(400).json({ error: 'User name is required' });
-    }
-  
-    const db = client.db('palate');
-    const usersCollection = db.collection('users');
-  
-    try {
-      const user = await usersCollection.findOne({ name: userName });
-      if (user) {
-        res.json({ success: true, likedFoods: user.likedFoods });
-      } else {
-        res.status(404).json({ success: false, error: 'User not found' });
-      }
-    } catch (error) {
-      res.status(500).json({ success: false, error: error.message });
-    }
-  });
-
-  app.post('/api/menu/compare-dishes', async (req, res) => {
-    const { userName, dishes } = req.body;
-  
-    if (!userName || !dishes) {
-      return res.status(400).json({ error: 'User name and dishes are required' });
-    }
-  
-    const db = client.db('palate');
-    const usersCollection = db.collection('users');
-  
-    try {
-      const user = await usersCollection.findOne({ name: userName });
-      if (user) {
-        const likedFoods = user.likedFoods;
-  
-        // Compare dishes to liked foods
-        const recommendations = dishes.map(dish => {
-          const isLiked = likedFoods.some(likedFood => dish.name.toLowerCase().includes(likedFood.toLowerCase()));
-          return {
-            ...dish,
-            isLiked,
-          };
-        });
-  
-        res.json({ success: true, recommendations });
-      } else {
-        res.status(404).json({ success: false, error: 'User not found' });
-      }
-    } catch (error) {
-      res.status(500).json({ success: false, error: error.message });
-    }
-  });
-
-  // Function to refine and recommend 3 dishes using Gemini AI
-async function getGeminiRecommendations(userLikedFoods, menuDishes) {
-    try {
-    const prompt = `
-        You are an AI-powered food recommendation system. A user has shared their favorite dishes, 
-        and we have extracted menu items from a restaurant. 
-
-        **Your task**:
-        - Recommend **exactly 3** dishes from the menu that best match the user's preferences.
-        - Compare dishes based on **flavors, ingredients, regional influences, and cooking styles**.
-        - Ensure **diversity** in recommendations (e.g., don't recommend only noodle dishes unless the user only likes noodles).
-        - **Explain why** each dish was recommended in 1-2 sentences.
-
-        **User’s Favorite Foods:**
-        ${JSON.stringify(userLikedFoods)}
-
-        **Menu Items:**
-        ${JSON.stringify(menuDishes)}
-
-        **Return a JSON array in this format:**
-        \`\`\`json
-        [
-        { "name": "Dish Name", "reason": "Why this dish was recommended" }
-        ]
-        \`\`\`
-    `;
-
-    const response = await axios.post(
-        `https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateContent?key=${GEMINI_API_KEY}`,
-        {
-        contents: [{ role: "user", parts: [{ text: prompt }] }],
-        }
-    );
-
-    // Extract AI response
-    let aiResponse = response.data.candidates[0].content.parts[0].text.trim();
-
-    // Remove Markdown formatting (` ```json ... ``` `)
-    aiResponse = aiResponse.replace(/^```json\n/, "").replace(/\n```$/, "").trim();
-
-    return JSON.parse(aiResponse); // Convert AI response to JSON
-    } catch (error) {
-    console.error("Gemini API Error:", error);
-    return []; // Return empty array if AI fails
-    }
-}
-
-// Route to compare menu dishes with user's preferences and recommend 3 items
-app.post("/api/menu/recommend-dishes", async (req, res) => {
-    const { userName, dishes } = req.body;
-
-    if (!userName || !dishes) {
-    return res.status(400).json({ error: "User name and dishes are required" });
+    if (!userName || !menuData) {
+      return res.status(400).json({ error: "User name and menu data are required" });
     }
 
-    const db = client.db("palate");
-    const usersCollection = db.collection("users");
-
-    try {
-    const user = await usersCollection.findOne({ name: userName });
+    const user = await getUser(userName);
     if (!user) {
-        return res.status(404).json({ error: "User not found" });
+      return res.status(404).json({ error: "User not found" });
     }
 
-    const userLikedFoods = user.likedFoods;
+    const recommendations = await getGeminiRecommendations(user.likedFoods, menuData);
 
-    // Use AI to get **exactly 3 best-matching dishes**
-    const recommendations = await getGeminiRecommendations(userLikedFoods, dishes);
+    // Update isRecommended and description for recommended dishes
+    const dishes = menuData.map(dish => {
+      const recommendation = recommendations.find(rec => rec.name === dish.name);
+      return {
+        ...dish,
+        description: recommendation ? recommendation.reason : dish.description,
+        isRecommended: recommendation ? "1" : "0"
+      };
+    });
 
-    res.json({ success: true, recommendations });
-    } catch (error) {
+    res.json({ success: true, dishes });
+  } catch (error) {
+    console.error("Error:", error);
     res.status(500).json({ error: error.message });
-    }
+  }
 });
-*/
