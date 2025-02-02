@@ -362,174 +362,38 @@ app.post("/api/user/feedback", async (req, res) => {
   }
 });
 
-/*
-const { MongoClient } = require('mongodb');
+// POST: Recommend dishes from saved menu data
+app.post("/api/menu/recommend-from-saved", async (req, res) => {
+  const { userName } = req.query;
 
-// MongoDB connection URI
-const uri = process.env.MONGODB_URI;
-const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-
-// Connect to MongoDB
-async function connectToMongoDB() {
   try {
-    await client.connect();
-    console.log('Connected to MongoDB');
-  } catch (error) {
-    console.error('Error connecting to MongoDB:', error);
-  }
-}
+    // Read menu data from JSON file
+    const menuData = JSON.parse(fs.readFileSync('./scrape-menu/menuData.json', 'utf8'));
 
-// Call the connect function
-connectToMongoDB();
-
-async function addDefaultUser() {
-    const db = client.db('palate'); // Replace 'palate' with your database name
-    const usersCollection = db.collection('users');
-  
-    const defaultUser = {
-      name: 'John',
-      likedFoods: ['Pad Thai', 'Pho', 'Tacos al Pastor'],
-      dislikedFoods: ['Kimchi', 'Seaweed Salad'],
-    };
-  
-    try {
-      await usersCollection.insertOne(defaultUser);
-      console.log('Default user added:', defaultUser);
-    } catch (error) {
-      console.error('Error adding default user:', error);
-    }
-  }
-  
-  // Call the function to add the default user
-  addDefaultUser();
-
-  app.get('/api/user/liked-foods', async (req, res) => {
-    const { userName } = req.query;
-  
-    if (!userName) {
-      return res.status(400).json({ error: 'User name is required' });
-    }
-  
-    const db = client.db('palate');
-    const usersCollection = db.collection('users');
-  
-    try {
-      const user = await usersCollection.findOne({ name: userName });
-      if (user) {
-        res.json({ success: true, likedFoods: user.likedFoods });
-      } else {
-        res.status(404).json({ success: false, error: 'User not found' });
-      }
-    } catch (error) {
-      res.status(500).json({ success: false, error: error.message });
-    }
-  });
-
-  app.post('/api/menu/compare-dishes', async (req, res) => {
-    const { userName, dishes } = req.body;
-  
-    if (!userName || !dishes) {
-      return res.status(400).json({ error: 'User name and dishes are required' });
-    }
-  
-    const db = client.db('palate');
-    const usersCollection = db.collection('users');
-  
-    try {
-      const user = await usersCollection.findOne({ name: userName });
-      if (user) {
-        const likedFoods = user.likedFoods;
-  
-        // Compare dishes to liked foods
-        const recommendations = dishes.map(dish => {
-          const isLiked = likedFoods.some(likedFood => dish.name.toLowerCase().includes(likedFood.toLowerCase()));
-          return {
-            ...dish,
-            isLiked,
-          };
-        });
-  
-        res.json({ success: true, recommendations });
-      } else {
-        res.status(404).json({ success: false, error: 'User not found' });
-      }
-    } catch (error) {
-      res.status(500).json({ success: false, error: error.message });
-    }
-  });
-
-  // Function to refine and recommend 3 dishes using Gemini AI
-async function getGeminiRecommendations(userLikedFoods, menuDishes) {
-    try {
-    const prompt = `
-        You are an AI-powered food recommendation system. A user has shared their favorite dishes, 
-        and we have extracted menu items from a restaurant. 
-
-        **Your task**:
-        - Recommend **exactly 3** dishes from the menu that best match the user's preferences.
-        - Compare dishes based on **flavors, ingredients, regional influences, and cooking styles**.
-        - Ensure **diversity** in recommendations (e.g., don't recommend only noodle dishes unless the user only likes noodles).
-        - **Explain why** each dish was recommended in 1-2 sentences.
-
-        **User’s Favorite Foods:**
-        ${JSON.stringify(userLikedFoods)}
-
-        **Menu Items:**
-        ${JSON.stringify(menuDishes)}
-
-        **Return a JSON array in this format:**
-        \`\`\`json
-        [
-        { "name": "Dish Name", "reason": "Why this dish was recommended" }
-        ]
-        \`\`\`
-    `;
-
-    const response = await axios.post(
-        `https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateContent?key=${GEMINI_API_KEY}`,
-        {
-        contents: [{ role: "user", parts: [{ text: prompt }] }],
-        }
-    );
-
-    // Extract AI response
-    let aiResponse = response.data.candidates[0].content.parts[0].text.trim();
-
-    // Remove Markdown formatting (` ```json ... ``` `)
-    aiResponse = aiResponse.replace(/^```json\n/, "").replace(/\n```$/, "").trim();
-
-    return JSON.parse(aiResponse); // Convert AI response to JSON
-    } catch (error) {
-    console.error("Gemini API Error:", error);
-    return []; // Return empty array if AI fails
-    }
-}
-
-// Route to compare menu dishes with user's preferences and recommend 3 items
-app.post("/api/menu/recommend-dishes", async (req, res) => {
-    const { userName, dishes } = req.body;
-
-    if (!userName || !dishes) {
-    return res.status(400).json({ error: "User name and dishes are required" });
+    if (!userName || !menuData) {
+      return res.status(400).json({ error: "User name and menu data are required" });
     }
 
-    const db = client.db("palate");
-    const usersCollection = db.collection("users");
-
-    try {
-    const user = await usersCollection.findOne({ name: userName });
+    const user = await getUser(userName);
     if (!user) {
-        return res.status(404).json({ error: "User not found" });
+      return res.status(404).json({ error: "User not found" });
     }
 
-    const userLikedFoods = user.likedFoods;
+    const recommendations = await getGeminiRecommendations(user.likedFoods, menuData);
 
-    // Use AI to get **exactly 3 best-matching dishes**
-    const recommendations = await getGeminiRecommendations(userLikedFoods, dishes);
+    // Update isRecommended and description for recommended dishes
+    const dishes = menuData.map(dish => {
+      const recommendation = recommendations.find(rec => rec.name === dish.name);
+      return {
+        ...dish,
+        description: recommendation ? recommendation.reason : dish.description,
+        isRecommended: recommendation ? "1" : "0"
+      };
+    });
 
-    res.json({ success: true, recommendations });
-    } catch (error) {
+    res.json({ success: true, dishes });
+  } catch (error) {
+    console.error("Error:", error);
     res.status(500).json({ error: error.message });
-    }
+  }
 });
-*/

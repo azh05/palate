@@ -1,35 +1,64 @@
-import { View, TextInput, StyleSheet } from 'react-native';
+import { View, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import { useState } from 'react';
-import { useRouter } from 'expo-router';
+import { router } from 'expo-router';
 
 export default function SearchBar() {
-  const [text, setText] = useState('');
-  const router = useRouter(); // Hook to handle navigation
+  const [url, setUrl] = useState('');
 
-  const handleSearch = () => {
-    if (text.trim() !== '') {
-      router.push(`/result?url=${encodeURIComponent(text)}`); // Navigate to result page
+  const handleSearch = async () => {
+    try {
+      console.log("Sending URL:", url);
+      const response = await fetch('http://localhost:9000/api/menu/recommend-dishes', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          url: url,
+          userName: 'John'
+        }),
+      });
+
+      console.log("Response received");
+      if (response.ok) {
+        const data = await response.json();
+        console.log("Recommendations received:", data);
+        
+        router.push({
+          pathname: '/result',
+          params: { 
+            url: url,
+            recommendations: JSON.stringify(data)
+          }
+        });
+      } else {
+        throw new Error('Failed to get recommendations');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Failed to process URL');
     }
-  };   
+  };
 
   return (
-    <View style={styles.searchContainer}>
-      <Feather name="search" size={20} color="#666" style={styles.searchIcon} />
+    <View style={styles.container}>
       <TextInput
-        style={styles.searchInput}
-        placeholder="Paste menu link here..."
-        placeholderTextColor="#666"
-        value={text}
-        onChangeText={setText}
-        onSubmitEditing={handleSearch} // Navigate on enter/submit
+        style={styles.input}
+        placeholder="Enter URL..."
+        value={url}
+        onChangeText={setUrl}
+        onSubmitEditing={handleSearch}
       />
+      <TouchableOpacity onPress={handleSearch}>
+        <Feather name="search" size={24} color="#264653" />
+      </TouchableOpacity>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  searchContainer: {
+  container: {
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#D9D9D9',
@@ -38,10 +67,7 @@ const styles = StyleSheet.create({
     width: 353,
     height: 50,
   },
-  searchIcon: {
-    marginRight: 10,
-  },
-  searchInput: {
+  input: {
     flex: 1,
     height: '100%',
     fontSize: 16,
