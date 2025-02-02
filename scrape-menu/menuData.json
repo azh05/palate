@@ -1,0 +1,458 @@
+[
+  {
+    "name": "APPETIZER",
+    "description": "An assorted selection of appetizers featuring bite-sized portions of various flavors and textures, perfect for starting a meal or sharing with friends. May contain allergens such as nuts, dairy, or gluten."
+  },
+  {
+    "name": "VEGETABLE EGG ROLLS",
+    "description": "VEGETABLE EGG ROLLS: Crispy spring rolls filled with a savory mixture of shredded cabbage, carrots, and other vegetables, wrapped in a thin wheat flour wrapper and pan-fried to a golden brown. Contains wheat, soy, and egg; may contain peanuts if prepared in a shared facility."
+  },
+  {
+    "name": "VEGETABLE EGG ROLLS",
+    "description": "Golden-brown and crispy egg rolls filled with a savory medley of fresh vegetables, including carrots, celery, cabbage, and onions, served with a flavorful dipping sauce. May contain gluten (wheat) and soy. Deep-fried Chinese-American dish."
+  },
+  {
+    "name": "FRIED TOFU",
+    "description": "Fried Tofu is a popular dish made from firm or extra-firm tofu that is cut into cubes, coated in a batter or cornstarch, and deep-fried until golden brown. It is typically served with a dipping sauce and may contain allergens such as soy."
+  },
+  {
+    "name": "STEAMED OR FRIED DUMPLING",
+    "description": "Steamed or fried dumplings are bite-sized pockets of dough filled with a savory mixture of meat, vegetables, and seasonings. Originating in China, they are commonly served as an appetizer or light meal and may contain allergens such as soy, gluten, and shellfish."
+  },
+  {
+    "name": "GOLDEN SHRIMP",
+    "description": "Succulent shrimp coated in a crisp golden batter, deep-fried to perfection. Contains wheat, soy, and milk allergens."
+  },
+  {
+    "name": "SHRIMP WONTON CHILI OIL",
+    "description": "SHRIMP WONTON CHILI OIL is a dish consisting of shrimp-filled wontons tossed in a spicy chili oil sauce. It is a popular street food in China and Taiwan, often served as an appetizer or snack."
+  },
+  {
+    "name": "SHRIMP ROLL",
+    "description": "A shrimp roll is a seafood sandwich with a filling made primarily of shrimp, celery, mayonnaise, and seasoning, on a hot dog bun. It is commonly found in the Northeastern United States. Possible allergens include shellfish and mayonnaise ingredients like eggs and oil."
+  },
+  {
+    "name": "CHICKEN SATAY",
+    "description": "Chicken Satay is a dish of seasoned, grilled chicken skewers served with a peanut dipping sauce. It's a popular Southeast Asian street food and contains allergens like peanuts."
+  },
+  {
+    "name": "SHRIMP TEMPURA",
+    "description": "Shrimp Tempura is a Japanese dish featuring tender shrimp encased in a light and crispy batter. It is commonly served with a savory dipping sauce and may contain allergens such as wheat and shellfish."
+  },
+  {
+    "name": "CRISPY WINGS",
+    "description": "Indulge in the savory delight of CRISPY WINGS, expertly seasoned and deep-fried to golden perfection. Beware of allergens such as gluten and dairy."
+  },
+  {
+    "name": "SPICY WINGS",
+    "description": "Indulge in a fiery sensation with our SPICY WINGS, tantalizingly coated in a piquant blend of spices. Prepare to ignite your taste buds, as each wing is perfectly cooked, resulting in a crispy exterior and succulent, juicy interior."
+  },
+  {
+    "name": "THAI WONTON WRAP",
+    "description": "Crispy wonton wrappers filled with a savory Thai-inspired filling, featuring fragrant herbs, aromatic spices, and tender vegetables. May contain wheat, soy, and nuts."
+  },
+  {
+    "name": "SALADS",
+    "description": "Salads are versatile dishes made from mixed raw vegetables, often accompanied by other ingredients such as fruits, cheese, or meat. Some common allergens associated with salads include nuts, seeds, and dairy products, so it's essential to be aware of your allergies when choosing ingredients."
+  },
+  {
+    "name": "HOUSE SALAD",
+    "description": "A refreshing blend of mixed greens, crisp vegetables, and tangy vinaigrette, the House Salad offers a light and nutritious start or side to any meal. May contain allergens such as dairy, wheat, or nuts."
+  },
+  {
+    "name": "HOUSE SALAD",
+    "description": "A classic starter featuring crisp lettuce, fresh vegetables like tomatoes, onions, cucumbers, and carrots, tossed with a light dressing. May contain allergens such as dairy (cheese) or gluten (croutons)."
+  },
+  {
+    "name": "BEEF SALAD",
+    "description": "A refreshing and flavorful salad featuring tender beef, crisp vegetables, and a zesty dressing. Contains gluten if croutons are included; may contain dairy if cheese is added."
+  },
+  {
+    "name": "SHRIMP SALAD",
+    "description": "SHRIMP SALAD is a delightful dish combining tender shrimp, crunchy vegetables, and a creamy dressing. It is typically made with boiled or sautéed shrimp, mixed with celery, onion, and mayonnaise. This dish is commonly served on a bed of lettuce, with possible allergens including crustacean shellfish and mayonnaise."
+  },
+  {
+    "name": "CHINESE CHICKEN SALAD",
+    "description": "Chinese chicken salad is a colorful and flavorful dish made with shredded chicken, crunchy vegetables, rice noodles, and a tangy sesame-ginger dressing. It is a popular takeout option and can be made with various ingredients, including cabbage, lettuce, carrots, onions, and toasted almonds."
+  },
+  {
+    "name": "SOUPS",
+    "description": ""
+  },
+  {
+    "name": "CHICKEN WAR WONTON SOUP",
+    "description": "Indulge in a flavorful broth filled with tender chicken, savory wontons, and assorted vegetables, delivering a harmonious symphony of flavors in every spoonful. Please note the possible presence of soy, wheat, and egg allergens."
+  },
+  {
+    "name": "CHICKEN WAR WONTON SOUP",
+    "description": "Satisfy your cravings with our \"Chicken War Wonton Soup,\" an invigorating broth filled with tender chicken, savory wontons, and a medley of vegetables. Contains gluten, egg, and soy allergens."
+  },
+  {
+    "name": "SHRIMP WAR WONTON SOUP",
+    "description": "Savor the delicate flavors of shrimp, wontons, and vegetables swimming in a savory broth, complemented by a hint of sesame oil. This comforting soup, with its Eastern origins, may contain soy and gluten allergens."
+  },
+  {
+    "name": "TOM YUM CHICKEN SOUP",
+    "description": "A spicy and tangy Thai soup made with a fragrant broth, chicken, mushrooms, and aromatic herbs like lemongrass, kaffir lime leaves, and galangal. May contain allergens such as soy, fish sauce, and peanuts."
+  },
+  {
+    "name": "TOM KHA CHICKEN SOUP",
+    "description": "A Thai-origin coconut-based soup made with chicken, lemongrass, galangal, and kaffir lime leaves. It may contain fish sauce (allergen) and is typically cooked by simmering the ingredients in a broth."
+  },
+  {
+    "name": "GLASS NOODLE SOUP",
+    "description": "A light and flavorful soup dish featuring thin, translucent glass noodles in a savory broth, often accompanied by vegetables, meat, or seafood. May contain allergens if animal products, gluten (soy sauce), or seafood are used."
+  },
+  {
+    "name": "SEVEN SEA SOUP",
+    "description": "\"SEVEN SEA SOUP\" is a seafood lovers' dream come true. It's a savory and hearty broth filled with an array of fresh seafood, including shrimp, mussels, clams, calamari, scallops, and fish. The soup can be prepared in a variety of ways, but it often includes a base of aromatic vegetables, herbs, and spices. It is a popular dish in coastal regions and is often served with crusty bread or rice."
+  },
+  {
+    "name": "HOT AND SOUR SOUP",
+    "description": "Hot and Sour Soup is a classic Chinese dish made with a spicy and tangy broth, tofu, and a variety of vegetables. It is commonly served as an appetizer or a light meal and may contain allergens such as soy, wheat, and sesame."
+  },
+  {
+    "name": "FAMOUS CURRY",
+    "description": "Indulge in our savory Famous Curry, a delectable fusion of aromatic spices, tender chicken, and creamy coconut milk. With hints of ginger, garlic, and turmeric, this dish tantalizes taste buds and comes with a side of fragrant jasmine rice."
+  },
+  {
+    "name": "YELLOW CHICKEN CURRY",
+    "description": "Savory yellow chicken curry made with a blend of aromatic spices, creamy coconut milk, and tender chicken simmered in a bright yellow sauce. May contain allergens such as coconut, dairy, and nuts, depending on the recipe."
+  },
+  {
+    "name": "YELLOW CHICKEN CURRY",
+    "description": "Indulge in a vibrant Yellow Chicken Curry, where juicy chicken is simmered in a fragrant blend of turmeric, ginger, garlic, and spices. This creamy and flavorful dish is crafted using traditional Indian cooking techniques, making it a tantalizing culinary delight. The curry contains allergens such as dairy and nuts, so please inform us of any dietary restrictions."
+  },
+  {
+    "name": "PANANG CURRY",
+    "description": "Aromatic Panang Curry combines savory coconut milk, sweet red curry paste, and tender chicken or tofu. May contain gluten, dairy, and coconut."
+  },
+  {
+    "name": "CHICKEN GREEN CURRY (CHICKEN ONLY)",
+    "description": ""
+  },
+  {
+    "name": "CHICKEN PRIK KHING",
+    "description": "CHICKEN PRIK KHING is a flavorful Thai dish made with chicken stir-fried in a spicy, ginger-infused sauce. It may contain allergens such as soy, gluten, and peanuts."
+  },
+  {
+    "name": "SHRIMP PINEAPPLE CURRY",
+    "description": "Savory and aromatic shrimp and pineapple are cooked in a creamy, fragrant coconut curry sauce, creating an exotic and flavorful Southeast Asian dish. May contain shellfish allergens."
+  },
+  {
+    "name": "FAMOUS BBQ",
+    "description": "Indulge in our tantalizing FAMOUS BBQ, a savory blend of slow-smoked meats, tangy BBQ sauce, and tender sides. Please note that this dish may contain allergens such as gluten, dairy, soy, and nuts."
+  },
+  {
+    "name": "THAI BBQ CHICKEN ( PLEASE ALLOW 15 Mins )",
+    "description": "Savor this tantalizing Thai BBQ Chicken, featuring tender chicken grilled to perfection with a savory blend of Thai spices and aromatics. Please allow 15 minutes for preparation. Potential allergens include gluten (if soy sauce is used), MSG, and peanuts (if used in the marinade)."
+  },
+  {
+    "name": "THAI BBQ CHICKEN ( PLEASE ALLOW 15 Mins )",
+    "description": "Savor the authentic flavors of Thailand with our succulent THAI BBQ CHICKEN. Marinated in a tantalizing blend of traditional Thai spices and grilled to perfection, this dish tantalizes your taste buds with its zesty and smoky notes. Be advised, please allow 15 minutes for preparation."
+  },
+  {
+    "name": "THAI BBQ PORK RIBS ( PLEASE ALLOW 15 Mins )",
+    "description": "Tender pork ribs marinated in a savory blend of Thai spices and herbs, grilled to perfection and served with a tangy dipping sauce. May contain gluten, soy, and sesame."
+  },
+  {
+    "name": "THAI PAN FRIED NOODLE",
+    "description": "THAI PAN FRIED NOODLE is a stir-fried noodle dish with vegetables, typically including bean sprouts, bell peppers, and carrots, and often includes a protein such as chicken, shrimp, or pork. It is made with wide, flat noodles and has a savory and slightly sweet sauce, and may contain allergens such as soy, wheat, and seafood depending on the specific ingredients used."
+  },
+  {
+    "name": "PAD THAI",
+    "description": "Pad Thai is a classic Thai noodle dish made with stir-fried rice noodles, vegetables, tofu, and a sweet and sour sauce. It may contain allergens such as soy, peanuts, and seafood."
+  },
+  {
+    "name": "PAD THAI",
+    "description": "Pad Thai is a popular Thai noodle dish made with stir-fried rice noodles, vegetables (such as carrots and bean sprouts), eggs, and a flavorful sauce containing fish sauce, tamarind paste, and palm sugar. It is a common street food and is considered a national dish of Thailand."
+  },
+  {
+    "name": "PAD THAI SHRIMP",
+    "description": "PAD THAI SHRIMP is a stir-fried noodle dish made with shrimp, rice noodles, vegetables, and a flavorful sauce made from tamarind, fish sauce, and palm sugar. It is a popular Thai street food that is also widely enjoyed in restaurants worldwide."
+  },
+  {
+    "name": "PAD KEE MAU ( DRUNKEN NOODLE )",
+    "description": "Pad Kee Mau, also known as \"Drunken Noodles,\" is a stir-fried noodle dish originating from Thailand. It features flat rice noodles tossed in a savory sauce made with soy sauce, oyster sauce, and chili paste, accompanied by various vegetables, proteins, and herbs such as garlic, ginger, chili peppers, and basil. May contain allergens such as gluten, seafood, nuts, and eggs."
+  },
+  {
+    "name": "SPAGHETTI PAD KEE MAU",
+    "description": "Spaghetti Pad Kee Mau is a stir-fried noodle dish made with rice noodles, vegetables, and your choice of protein, seasoned with a savory and slightly sweet sauce. It is a popular street food in Thailand and is typically made with soy sauce, oyster sauce, garlic, chilis, and vegetables such as Chinese broccoli, carrots, and bell peppers. May contain allergens such as soy, peanuts, and seafood."
+  },
+  {
+    "name": "SPAGHETTI JAMBALAYA",
+    "description": "Spaghetti Jambalaya is a Cajun-inspired dish that combines the flavors of traditional jambalaya with spaghetti noodles. It is made with a base of andouille sausage, shrimp, chicken, and vegetables, simmered in a flavorful broth and served over spaghetti. Contains shellfish and gluten."
+  },
+  {
+    "name": "CHOW MEIN",
+    "description": "Chow mein is a Chinese stir-fried noodle dish made with wheat noodles, vegetables, and meat or seafood. Possible allergens include gluten, soy, and seafood."
+  },
+  {
+    "name": "COMBINATION CHOW MEIN",
+    "description": "Combination Chow Mein is a stir-fried noodle dish made with a variety of meats, vegetables, and sauces, including soy sauce and oyster sauce. It is a popular dish in Chinese restaurants, and contains common allergens such as soy, wheat, and seafood."
+  },
+  {
+    "name": "RAINBOW PAN FRIED NOODLES\n( PAD WOON SEN )",
+    "description": "RAINBOW PAN FRIED NOODLES ( PAD WOON SEN ): \nA vibrant stir-fried glass noodle dish with colorful vegetables like carrots, bell peppers, broccoli, and beansprouts, topped with a savory sauce. May contain gluten, soy, and shellfish."
+  },
+  {
+    "name": "PAN FRIED SUKIYAKI",
+    "description": "Pan-fried Sukiyaki is a Japanese dish prepared by pan-frying thinly sliced beef, vegetables, and tofu in a sweet and savory sauce. It may contain common allergens like soy, wheat, and seafood."
+  },
+  {
+    "name": "HONG KONG PAD SEE EW CHICKEN",
+    "description": "A delectable dish of stir-fried flat rice noodles topped with tender chicken, fresh vegetables, and a savory soy-based sauce. It contains gluten, soy, and sesame."
+  },
+  {
+    "name": "SINGAPORE KUA KAI",
+    "description": "Singapore Kua Kai is a stir-fried flat rice noodle dish made with chicken, prawns, vegetables, and a sweet and savory sauce. It is commonly found in Singaporean hawker centers and food courts. Possible allergens include gluten (from soy sauce), seafood (prawns), and eggs."
+  },
+  {
+    "name": "RAD NA",
+    "description": "Rad Na is a Thai stir-fried dish made with wide rice noodles, vegetables, and a savory gravy sauce. It may contain allergens such as soy, wheat, and peanuts. The exact origin of Rad Na is not precisely known."
+  },
+  {
+    "name": "ASIAN NOODLE SOUP",
+    "description": "Aromatic Asian noodle soup made with savory broth, tender noodles, vegetables, and protein, offering a comforting and flavorful meal. May contain allergens such as soy, wheat, eggs, or seafood, depending on the ingredients used."
+  },
+  {
+    "name": "THAI BOAT NOODLES",
+    "description": "Thai Boat Noodles is a tantalizing noodle dish originating from Thailand, featuring tender rice noodles in a flavorful broth made from pork, beef, or seafood, and topped with bean sprouts, fried shallots, and a variety of herbs and spices. It may contain allergens such as wheat (from soy sauce), peanuts, or fish/shrimp sauce."
+  },
+  {
+    "name": "THAI BOAT NOODLES",
+    "description": "Thai Boat Noodles, a traditional dish from Central Thailand, are flavorful noodle soups made with a rich broth featuring star anise, cinnamon, and other aromatic spices. Various meats and vegetables, such as beef, pork, meatballs, and vegetables, are added to the broth along with rice noodles. Please note that it may contain allergens like peanuts and shellfish."
+  },
+  {
+    "name": "PHO ( BEEF OR CHICKEN )",
+    "description": "A comforting Vietnamese noodle soup made with a flavorful broth, tender meat, rice noodles, fresh herbs, and bean sprouts. May contain gluten (wheat noodles), dairy (milk used in broth), and seafood (fish sauce used in broth)."
+  },
+  {
+    "name": "WAR WONTON EGG NOODLES",
+    "description": "\"WAR WONTON EGG NOODLES\" is a savory Chinese soup dish featuring wontons filled with pork and shrimp, served in a flavorful broth with egg noodles. It contains wheat, soy, and shellfish allergens, and is typically cooked by boiling the wontons and noodles in the broth."
+  },
+  {
+    "name": "SHRIMP WONTON EGG NOODLES",
+    "description": "SHRIMP WONTON EGG NOODLES is a dish made with shrimp-filled wontons, egg noodles, and vegetables, usually served in a flavorful broth. It may contain allergens such as shrimp, wheat, eggs, or soy. The dish is typically associated with Chinese cuisine and is a popular comfort food."
+  },
+  {
+    "name": "TOM KHA NOODLES ( CHICKEN OR SHRIMP )",
+    "description": "A flavorful Thai noodle soup made with a spicy and sour broth containing lemongrass, galangal, kaffir lime leaves, coconut milk, and chili peppers. Available with chicken or shrimp, served with rice noodles and garnished with cilantro, lime wedges, and bean sprouts. Contains dairy and shellfish allergens."
+  },
+  {
+    "name": "TOM YUM NOODLES ( CHICKEN OR SHRIMP )",
+    "description": "Savory and aromatic Thai rice noodles in a spicy and sour tom yum broth, featuring tender chicken or succulent shrimp, lemongrass, kaffir lime leaves, and chili peppers. Contains gluten and shellfish (shrimp) in the shrimp option."
+  },
+  {
+    "name": "HONG KONG BEEF STEW NOODLES",
+    "description": "This hearty Hong Kong-style beef stew is simmered in a savory broth with tender beef, vegetables, and umami-rich fermented bean curd. Contains soy, gluten, and dairy."
+  },
+  {
+    "name": "PINK NOODLES ( YEN TA FOUR )",
+    "description": "PINK NOODLES (YEN TA FOUR) is a widely popular Thai street food dish, typically made with fermented rice noodles, squid, pork belly, and a flavorful broth seasoned with aromatics such as garlic, shallots, and cilantro. It may contain allergens such as soy, seafood, and gluten."
+  },
+  {
+    "name": "THAI FRIED RICE",
+    "description": "Thai Fried Rice is a classic Thai dish made with rice, vegetables, eggs, and your choice of protein, all stir-fried in a flavorful sauce. It is a versatile dish that can be customized to your liking, and is commonly made with ingredients such as bell peppers, carrots, and onions. **Possible allergens include eggs, soy, fish sauce, and peanuts.**"
+  },
+  {
+    "name": "THAI FRIED RICE",
+    "description": "THAI FRIED RICE is a popular dish made with cooked rice, vegetables, meat or seafood, and a flavorful sauce. Common ingredients include garlic, onions, carrots, peas, and shrimp. It is often seasoned with fish sauce, soy sauce, and chili peppers. The dish is stir-fried in a wok or large skillet and is typically served with lime wedges and fresh cilantro. It is believed to have originated in Thailand and is a staple of Thai cuisine. Possible allergens include peanuts, shellfish, and fish sauce."
+  },
+  {
+    "name": "THAI FRIED RICE",
+    "description": "THAI FRIED RICE is a flavorful Thai dish made with jasmine rice, vegetables, meat, eggs, and a savory sauce. It is stir-fried in a wok until golden brown and seasoned with Thai herbs and spices. It may contain allergens such as soy, fish sauce, and peanuts."
+  },
+  {
+    "name": "COMBINATION FRIED RICE",
+    "description": "Combination Fried Rice is a savory dish featuring a medley of rice, vegetables, eggs, and meat. It is typically stir-fried using high heat, resulting in a flavorful and slightly charred dish. Common allergens include eggs, soy sauce, and shellfish."
+  },
+  {
+    "name": "SPICY FRIED RICE",
+    "description": "Indulge in a tantalizing feast of SPICY FRIED RICE, a delectable dish bursting with bold flavors. This wok-fried symphony of fragrant rice, aromatic vegetables, and a fiery blend of spices tantalizes the palate, leaving a lasting impression. Caution: this dish contains allergens such as soy and gluten."
+  },
+  {
+    "name": "COMBINATION SPICY FRIED RICE",
+    "description": "Spicy Fried Rice combines savory rice, vegetables, and your choice of protein, wok-fried in a flavorful, spicy sauce made with a blend of chili peppers, soy sauce, and spices. Contains soy, gluten, and may contain other allergens depending on the ingredients used."
+  },
+  {
+    "name": "CHINESE SAUSAGE FRIED RICE",
+    "description": "Chinese Sausage Fried Rice is a popular Cantonese dish made with fragrant Chinese sausage, fluffy rice, and various vegetables. Common allergens include soy, gluten, and peanuts. It's a flavorful and satisfying dish that combines the savory flavors of Chinese sausage and the comforting texture of fried rice."
+  },
+  {
+    "name": "PINEAPPLE FRIED RICE",
+    "description": "Pineapple fried rice is a savory dish consisting of jasmine rice stir-fried with pineapple, vegetables, egg, and a flavorful sauce made with soy sauce, fish sauce, and sugar. (Possible allergens: eggs, soy, fish)"
+  },
+  {
+    "name": "PANANG FRIED RICE ( BEEF ONLY )",
+    "description": "Indulge in the tantalizing PANANG FRIED RICE (BEEF ONLY), a delectable Thai-inspired dish prepared with aromatic Panang curry paste, tender beef, fluffy rice, and a colorful blend of vegetables. Served hot and brimming with an array of flavors. Contains gluten and soy."
+  },
+  {
+    "name": "A LA CARTE",
+    "description": "A LA CARTE is a customizable dish that allows diners to choose ingredients to suit their dietary preferences. It is prepared fresh to order, offering a variety of allergen-friendly options."
+  },
+  {
+    "name": "ORANGE CHICKEN",
+    "description": "Orange Chicken is a sweet and tangy dish consisting of deep-fried chicken coated in a bright orange sauce made with orange zest, soy sauce, and sugar. It is often served over steamed rice or noodles and may contain allergens such as gluten and soy."
+  },
+  {
+    "name": "ORANGE CHICKEN",
+    "description": "Orange chicken is a popular Chinese-American dish featuring crispy-fried chicken pieces coated in a sweet and savory orange sauce, made with ingredients like orange juice, soy sauce, and vinegar. It is known for its distinctive orange-colored sauce and crispy texture, and common allergens include wheat (from the breading) and soy."
+  },
+  {
+    "name": "BASIL LEAVES CHICKEN ( BEEF, PORK, TOFU, SHRIMP $2 )",
+    "description": "Tender chicken stir-fried in a flavorful garlic, basil, and chili sauce, topped with crispy basil leaves. May contain allergens like soy sauce and peanuts; suitable for gluten-free diets if prepared accordingly."
+  },
+  {
+    "name": "CHICKEN OR BEEF TERIYAKI (PLEASE ALLOW 15 Mins)",
+    "description": "Tantalizing grilled chicken or tender beef marinated in a savory-sweet teriyaki sauce, served with steamed rice and vegetables. Contains soy, gluten, and sesame allergens."
+  },
+  {
+    "name": "SPICY EGGPLANT BASIL SAUCE",
+    "description": "Spice up your taste buds with our \"Spicy Eggplant Basil Sauce\"! This savory sauce combines tender eggplant, aromatic basil, and a fiery kick of chili peppers. Served over pasta, rice, or vegetables, it's a gluten-free and vegan delight with a hint of heat that will leave you wanting more."
+  },
+  {
+    "name": "HAINAN CHICKEN",
+    "description": "Hainanese Chicken Rice is a classic South-East Asian dish made with tender steamed chicken served over fragrant rice cooked in chicken broth. Possible allergens include soy and MSG."
+  },
+  {
+    "name": "STRING BEANS GARLIC ( CHICKEN, BEEF, PORK, TOFU, SHRIMP $2)",
+    "description": "Savory stir-fried string beans with garlic and your choice of protein (chicken, beef, pork, tofu, or shrimp), seasoned with soy sauce and other classic Chinese flavors. Contains soy and gluten."
+  },
+  {
+    "name": "KUNG PAO",
+    "description": "Kung Pao is a spicy and tangy Sichuan dish made with chicken, peanuts, vegetables, and a sweet and savory sauce. It is commonly served with rice and contains allergens such as peanuts, soy, and sesame."
+  },
+  {
+    "name": "GARLIC AND PEPPER ( CHICKEN, BEEF, PORK, TOFU)",
+    "description": "This savory dish features tender meat or tofu marinated in a flavorful blend of garlic, black pepper, and other spices, and cooked to perfection. May contain allergens such as soy (if using tofu)."
+  },
+  {
+    "name": "MONGOLIAN BEEF",
+    "description": "Mongolian beef is a stir-fried dish made with thinly sliced beef, vegetables, and a savory sauce made from soy sauce, brown sugar, garlic, and ginger. It is typically served over rice and can contain allergens such as wheat, soy, and sesame."
+  },
+  {
+    "name": "GARLIC BABY PORK SPARERIBS (SHORT)",
+    "description": "Tender baby pork spareribs glazed in a sweet and savory garlic sauce, offering a delightful balance of flavors. Contains pork and garlic, potential allergens for some individuals."
+  },
+  {
+    "name": "MIXED VEGETABLES WITH TOFU (PAN FRIED OR STEAMED)",
+    "description": "This well-balanced dish is made with a variety of fresh vegetables and tofu, pan-fried or steamed for a crispy or soft texture. It is a popular dish in many Asian cuisines, particularly in China and Japan. Common allergens include soy (from the tofu)."
+  },
+  {
+    "name": "BEEF BROCCOLI",
+    "description": "Tender beef stir-fried with crisp broccoli, coated in a savory sauce made with soy sauce, ginger, and garlic. Contains gluten, soy, and oyster sauce."
+  },
+  {
+    "name": "CASHEW NUT",
+    "description": "Cashew nuts are the edible seeds of the cashew tree, Anacardium occidentale. They are rich in dietary fiber and micronutrients, and have a sweet and nutty flavor. Cashew nuts are commonly roasted or fried, and are often used in various cuisines as a snack, in salads, or as an ingredient in desserts. They are highly allergenic, so individuals with nut allergies should avoid consuming them."
+  },
+  {
+    "name": "FISH AND SHRIMP",
+    "description": "A classic seafood dish featuring tender and flaky fish fillets and succulent shrimp cooked in a flavorful broth, typically made with a combination of vegetables, herbs, and seasonings. Contains fish and shrimp, which may cause allergic reactions in individuals with seafood allergies."
+  },
+  {
+    "name": "SWEET & SOUR FISH",
+    "description": "SWEET & SOUR FISH consists of crispy fried fish coated in a tangy, sweet and sour sauce. Made with fresh fish, bell peppers, onions, pineapple, and a combination of sweet and sour flavors, it is a popular dish in Chinese cuisine. May contain allergens such as fish, soy, and gluten."
+  },
+  {
+    "name": "SWEET & SOUR FISH",
+    "description": "Sweet & sour fish is a classic Chinese dish made with lightly fried fish coated in a sweet, sour, and tangy sauce. This dish often includes vegetables such as bell peppers, carrots, and onions. It is a popular dish in Chinese restaurants and can be made with various types of fish, such as tilapia, cod, or salmon. Common allergens include fish, soy, and wheat."
+  },
+  {
+    "name": "SPICY FISH EGGPLANT BASIL SAUCE",
+    "description": "This vibrant dish features tender eggplant and fish eggs tossed in a spicy, aromatic basil sauce, made from fresh basil, garlic, chili peppers, and tomatoes. It's a classic Thai dish that may contain allergens such as fish and soy, and is typically stir-fried."
+  },
+  {
+    "name": "SPICY MINT FISH",
+    "description": "Savor the tangy zest of \"SPICY MINT FISH,\" a delectable dish tantalizing your taste buds with a harmonious blend of mint leaves, aromatic spices, and succulent fish. Originating from Southeast Asia, this culinary creation may contain allergens such as fish and soy."
+  },
+  {
+    "name": "FISH FILLET BLACK BEAN SAUCE",
+    "description": "Tender fish fillets are smothered in a savory black bean sauce made with a blend of fermented black beans, aromatic spices, and fresh vegetables. This dish is perfect for those with gluten or shellfish allergies and is commonly found in Chinese cuisine."
+  },
+  {
+    "name": "GARLIC AND PEPPER SHRIMP",
+    "description": "Savory shrimp coated in a zesty marinade of garlic, pepper, and other spices, sautéed or grilled until tender and flavorful. Contains shrimp, garlic, pepper, and may contain additional allergens."
+  },
+  {
+    "name": "KUNG PAO SHRIMP",
+    "description": "Stir-fried shrimp with peanuts, vegetables, and a spicy Kung Pao sauce, a popular Sichuan dish. May contain allergens such as peanuts, soy, and wheat."
+  },
+  {
+    "name": "DRINKS",
+    "description": "DRINKS are a wide variety of beverages that can be alcoholic or non-alcoholic, and may include ingredients such as fruit juices, carbonated water, sweeteners, and flavors. Some drinks may contain allergens such as dairy, nuts, or gluten."
+  },
+  {
+    "name": "Thai Iced Tea",
+    "description": "Thai Iced Tea is a vibrant and creamy beverage made with black tea, condensed milk, and various spices like star anise and cinnamon. It is served over ice with its distinctive orange color and a subtly sweet and aromatic flavor."
+  },
+  {
+    "name": "Thai Iced Tea",
+    "description": "Thai Iced Tea is a unique iced tea beverage with a vibrant orange color and refreshing taste. Made with black tea, star anise, cardamom, and sweetened condensed milk, this beverage is widely enjoyed in Thailand and beyond. It is usually served chilled with ice and can contain allergens such as dairy and soy from the condensed milk."
+  },
+  {
+    "name": "Thai Iced Coffee",
+    "description": "Delectable Thai Iced Coffee, a refreshing blend of brewed coffee, condensed milk, and ice, tantalizes taste buds with a sweet and creamy flavor. It may contain allergens such as dairy and caffeine."
+  },
+  {
+    "name": "Iced Green Tea",
+    "description": "Quench your thirst with Iced Green Tea, a refreshing blend of brewed green tea leaves and chilled water. This subtly sweet beverage may contain caffeine and is typically served with ice cubes."
+  },
+  {
+    "name": "Milk Green Tea",
+    "description": "Milk Green Tea is a refreshing beverage made with loose-leaf green tea steeped in hot milk, creating a creamy and slightly sweet drink. This drink is free of common allergens and is typically prepared by steeping green tea leaves in hot milk for a few minutes."
+  },
+  {
+    "name": "Coke Diet Coke ( Can )",
+    "description": "Coke Diet Coke is a sugar-free, low-calorie carbonated soft drink sweetened with aspartame, containing caffeine, phosphoric acid, and other natural flavors. It is a canned beverage typically served chilled and widely popular."
+  },
+  {
+    "name": "Sprite ( Can )",
+    "description": "Sprite is a lemon-lime flavored soft drink produced by The Coca-Cola Company. It contains carbonated water, high fructose corn syrup, natural flavors, citric acid, and sodium citrate. Sprite is gluten-free and caffeine-free."
+  },
+  {
+    "name": "Hot Jasmine Tea",
+    "description": "Hot Jasmine Tea is a fragrant and refreshing beverage made from steeped jasmine flowers and green tea leaves. This gluten-free and caffeine-containing tea has no known major allergens and is a popular choice for its delicate floral aroma and calming effects."
+  },
+  {
+    "name": "Bottle Water",
+    "description": "Purified water sourced from natural springs, bottled in a sealed container, free of contaminants and allergens."
+  },
+  {
+    "name": "DESSERT",
+    "description": "Indulge in a symphony of flavors with our decadent DESSERT, meticulously crafted with premium ingredients like rich chocolate, velvety custard, and succulent fruits. Please be aware of potential allergens such as dairy, gluten, and nuts."
+  },
+  {
+    "name": "Fried Banana Crepe",
+    "description": "Fried Banana Crepe is a sweet pastry dish that combines the soft and fluffy texture of a crepe with the caramelized sweetness of fried bananas. It is made with crepe batter poured into a pan and cooked until golden brown, then filled with sliced bananas that are coated in cinnamon sugar and fried until caramelized. May contain gluten (wheat flour) and dairy (milk, butter) allergens."
+  },
+  {
+    "name": "Fried Banana Crepe",
+    "description": "A crispy crepe filled with sweet, caramelized bananas, drizzled with a flavorful sauce. This dish may contain gluten, milk, and nuts, so be cautious if you have allergies."
+  },
+  {
+    "name": "Sticky Rice with Mango (Seasonal)",
+    "description": "Indulge in the delightful Thai delicacy, Sticky Rice with Mango, where fragrant glutinous rice is steamed and paired with sweet, juicy mangoes. This seasonal treat is gluten-free, but may contain soy if served with the traditional coconut milk sauce."
+  },
+  {
+    "name": "ALL DAY SPECIAL",
+    "description": "Indulge in our signature \"ALL DAY SPECIAL,\" a hearty dish featuring tender chicken simmered in a flavorful sauce, accompanied by fluffy mashed potatoes, crisp vegetables, and a rich gravy. Contains dairy, gluten, and soy."
+  },
+  {
+    "name": "ALL DAY SPECIAL",
+    "description": "Indulge in our \"ALL DAY SPECIAL,\" a hearty meal of tender chicken strips served atop a bed of seasoned rice, accompanied by a tangy dipping sauce and refreshing coleslaw. May contain gluten, soy, and dairy."
+  },
+  {
+    "name": "Address",
+    "description": "\"Address\" is a unique culinary creation that combines succulent scallops and juicy prawns, enveloped in a delicate pastry shell. It is a gluten-free and shellfish-based dish perfect for elegant gatherings."
+  },
+  {
+    "name": "Opening Hours",
+    "description": "\"Opening Hours\" is a contemporary dish known for its innovative presentation. It features a delicate pastry shell filled with a savory blend of roasted vegetables, whipped feta, and microgreens. Please note that it may contain allergens such as gluten and dairy."
+  },
+  {
+    "name": "Contact",
+    "description": "\"Contact\" is an innovative dish that combines the flavors of different cultures, featuring a medley of grilled vegetables, exotic fruits, and aromatic herbs. Suitable for vegans and vegetarians, this fusion dish is a culinary adventure that tantalizes the taste buds."
+  }
+]
