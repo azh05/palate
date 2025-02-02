@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import { useLocalSearchParams } from 'expo-router';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 
 import ElevatedCards from '../components/ElevatedCards';
@@ -91,6 +91,9 @@ const avoidItems = [
 export default function RecommendationsScreen() {
   const params = useLocalSearchParams();
   const navigation = useNavigation();
+  const [recommendations, setRecommendations] = useState(null);
+  const [allergens, setAllergens] = useState(null);
+  const [otherDishes, setOtherDishes] = useState(null);
 
   useEffect(() => {
     navigation.setOptions({
@@ -99,9 +102,25 @@ export default function RecommendationsScreen() {
     });
   }, [navigation]);
 
+  useEffect(() => {
+    if (params.recommendations) {
+      const data = JSON.parse(params.recommendations as string);
+      setRecommendations(data);
+
+      if(data && data.dishes) {
+        console.log(data.dishes.dishes);
+        console.log(data.dishes);
+      }
+
+      console.log("Parsed recommendations:", data);
+    }
+  }, [params.recommendations]);
+
+  if (!recommendations) {
+    return <View style={styles.container}><Text>Loading...</Text></View>;
+  }
 
   return (
-    
     <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.header}>
         <Text style={styles.title}>You might like...</Text>

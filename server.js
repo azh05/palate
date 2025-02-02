@@ -150,6 +150,7 @@ async function extractText(imageBase64) {
         return filteredDishes;
 
     } catch (error) {
+        // console.error("Error extracting text:", error);
         return false;
     }
   }
@@ -252,12 +253,8 @@ app.post("/api/menu/compare-dishes", async (req, res) => {
 
 // **POST: Recommend 3 dishes based on user’s preferences**
 app.post("/api/menu/recommend-dishes", async (req, res) => {
-  const { userName } = req.query;
-  const { imageBase64 } = req.body;
+  const { userName, imageBase64 } = req.body;
   dishes = await extractText(imageBase64);
-  // console.log(dishes);
-  // console.log(userName);
-  // console.log(imageBase64);
 
   if (!userName || !dishes) {
       return res.status(400).json({ error: "User name and dishes are required" });

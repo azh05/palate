@@ -42,7 +42,8 @@
     "react-native-snap-carousel": "^3.9.1",
     "react-native-web": "~0.19.13",
     "react-native-webview": "13.12.5",
-    "react-snap-carousel": "^0.5.1"
+    "react-snap-carousel": "^0.5.1",
+    "expo-file-system": "~18.0.8"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
