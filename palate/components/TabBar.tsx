@@ -3,6 +3,18 @@ import { useLinkBuilder, useTheme } from '@react-navigation/native';
 import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 import TabBarButton from './TabBarButton';
 
+const tabIcons = {
+  index: 'search',
+  profile: 'person',
+  bruh: 'log-in',
+};
+
+const tabLabels = {
+  index: 'Search',
+  profile: 'Profile',
+  bruh: 'Login',
+};
+
 export default function MyTabBar({ state, descriptors, navigation }: BottomTabBarProps) {
   const { colors } = useTheme();
   const { buildHref } = useLinkBuilder();
@@ -12,6 +24,8 @@ export default function MyTabBar({ state, descriptors, navigation }: BottomTabBa
       {state.routes.map((route, index) => {
         const { options } = descriptors[route.key];
         const isFocused = state.index === index;
+        const icon = tabIcons[route.name as keyof typeof tabIcons];
+        const label = tabLabels[route.name as keyof typeof tabLabels];
 
         const onPress = () => {
           const event = navigation.emit({
@@ -38,10 +52,12 @@ export default function MyTabBar({ state, descriptors, navigation }: BottomTabBa
             route={route}
             isFocused={isFocused}
             options={options}
-            href={buildHref(route.name, route.params)}
+            href={buildHref(route.name, route.params) || ''}
             onPress={onPress}
             onLongPress={onLongPress}
             color={colors.text}
+            icon={icon}
+            label={label}
           />
         );
       })}

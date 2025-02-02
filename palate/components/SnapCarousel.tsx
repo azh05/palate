@@ -1,5 +1,6 @@
-import React from 'react';
-import { View, ScrollView, StyleSheet, Dimensions, Image, Text } from 'react-native';
+import React, { useState } from 'react';
+import { View, ScrollView, StyleSheet, Dimensions, Image, Text, TouchableOpacity } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 import data from '../app/data';
 
 const { width } = Dimensions.get('window');
@@ -18,6 +19,16 @@ interface SnapCarouselProps {
 }
 
 export default function SnapCarousel({ items }: SnapCarouselProps) {
+    const [bookmarkedItems, setBookmarkedItems] = useState<number[]>([]);
+
+    const toggleBookmark = (index: number) => {
+        setBookmarkedItems(prev => 
+            prev.includes(index) 
+                ? prev.filter(i => i !== index)
+                : [...prev, index]
+        );
+    };
+
     return (
         <ScrollView 
             horizontal={true}
@@ -32,7 +43,19 @@ export default function SnapCarousel({ items }: SnapCarouselProps) {
                         source={{ uri: item.imgUrl }}
                         style={styles.image}
                     />
-                    <Text style={styles.title}>{item.title}</Text>
+                    <View style={styles.titleContainer}>
+                        <Text style={styles.title}>{item.title}</Text>
+                        <TouchableOpacity 
+                            style={styles.bookmarkButton}
+                            onPress={() => toggleBookmark(index)}
+                        >
+                            <Ionicons 
+                                name={bookmarkedItems.includes(index) ? "bookmark" : "bookmark-outline"} 
+                                size={24} 
+                                color="black" 
+                            />
+                        </TouchableOpacity>
+                    </View>
                     <Text style={styles.description}>{item.body}</Text>
                 </View>
             ))}
@@ -55,14 +78,23 @@ const styles = StyleSheet.create({
         height: '70%',
         marginBottom: 16
     },
+    titleContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginBottom: 8
+    },
     title: {
         fontSize: 24,
         fontWeight: '700',
-        marginBottom: 16,
         color: '#000',
         fontFamily: 'BodoniFLF',
         fontStyle: 'normal',
-        lineHeight: undefined
+        flex: 1
+    },
+    bookmarkButton: {
+        padding: 8,
+        marginRight: -8
     },
     description: {
         fontSize: 12,

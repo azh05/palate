@@ -21,19 +21,12 @@ export default function TabLayout() {
             presentation: 'transparentModal',
           },
         }),
-        // Add fade animation
-        tabBarStyle: { 
-          animation: 'timing',
-          config: {
-            duration: 200,
-          },
-        },
+        tabBarStyle: {}, // Remove animation config
       }}
       tabBar={(props) => <MyTabBar {...props} />}
     >
       <Tabs.Screen name="profile" options={{ title: 'Profile' }} /> 
       <Tabs.Screen name="index" options={{ title: 'Search' }} />
-     {/*<Tabs.Screen name="recommendations" options={{ title: 'Recommendations' }} />*/}
     </Tabs>
   );
 }
