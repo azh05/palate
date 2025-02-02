@@ -1,0 +1,34 @@
+{
+  "name": "palate",
+  "version": "1.0.0",
+  "description": "**Your Guide to Smarter Dining**",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/azh05/palate.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/azh05/palate/issues"
+  },
+  "homepage": "https://github.com/azh05/palate#readme",
+  "dependencies": {
+    "@google-cloud/translate": "^8.5.0",
+    "@google-cloud/vision": "^4.3.2",
+    "axios": "^1.7.9",
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "firebase-admin": "^13.0.2",
+    "mongodb": "^6.13.0",
+    "openai": "^4.82.0",
+    "spellchecker": "^3.7.1"
+  }
+}
