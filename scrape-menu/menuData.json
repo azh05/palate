@@ -1,0 +1,394 @@
+[
+  {
+    "name": "APPETIZER",
+    "description": ""
+  },
+  {
+    "name": "VEGETABLE EGG ROLLS",
+    "description": "Sautéed beef tossed with lettuce, tomato, cucumber, onion, lime juice, and chili."
+  },
+  {
+    "name": "VEGETABLE EGG ROLLS",
+    "description": ""
+  },
+  {
+    "name": "FRIED TOFU",
+    "description": "Sautéed beef tossed with lettuce, tomato, cucumber, onion, lime juice, and chili."
+  },
+  {
+    "name": "STEAMED OR FRIED DUMPLING",
+    "description": "Wonton skin stuffed with chicken and vegetable with ponzu sauce."
+  },
+  {
+    "name": "GOLDEN SHRIMP",
+    "description": "Fried shrimp balls with plum sauce."
+  },
+  {
+    "name": "SHRIMP WONTON CHILI OIL",
+    "description": "Sautéed beef tossed with lettuce, tomato, cucumber, onion, lime juice, and chili."
+  },
+  {
+    "name": "SHRIMP ROLL",
+    "description": "Whole shrimp wrapped in wonton skin and deep fried, with plum sauce."
+  },
+  {
+    "name": "CHICKEN SATAY",
+    "description": "Chicken marinaded in Thai spices with peanut and cucumber sauce."
+  },
+  {
+    "name": "SHRIMP TEMPURA",
+    "description": "Chicken marinaded in Thai spices with peanut and cucumber sauce."
+  },
+  {
+    "name": "CRISPY WINGS",
+    "description": "Hot & sour soup, chicken, mushrooms, lemongrass, lime juice, fish sauce, and chili.(Shrimp add $2)"
+  },
+  {
+    "name": "SPICY WINGS",
+    "description": "Deep-fried chicken wings with sweet and spicy sauce."
+  },
+  {
+    "name": "THAI WONTON WRAP",
+    "description": "Deep-fried chicken wonton, served with peanut sauce."
+  },
+  {
+    "name": "SALADS",
+    "description": ""
+  },
+  {
+    "name": "HOUSE SALAD",
+    "description": "Lettuce, tomato, carrots, onion, boiled egg, chicken, and shrimp with peanut dressing."
+  },
+  {
+    "name": "BEEF SALAD",
+    "description": "Sautéed beef tossed with lettuce, tomato, cucumber, onion, lime juice, and chili."
+  },
+  {
+    "name": "SHRIMP SALAD",
+    "description": ""
+  },
+  {
+    "name": "CHINESE CHICKEN SALAD",
+    "description": "Sautéed chicken tossed with lettuce, tomato, carrot, sesame seed, and Chinese dressing."
+  },
+  {
+    "name": "SOUPS",
+    "description": ""
+  },
+  {
+    "name": "CHICKEN WAR WONTON SOUP",
+    "description": "Veggie broth filled with chicken and shrimp, wrapped in wonton skin."
+  },
+  {
+    "name": "SHRIMP WAR WONTON SOUP",
+    "description": ""
+  },
+  {
+    "name": "TOM YUM CHICKEN SOUP",
+    "description": "Hot & sour soup, chicken, mushrooms, lemongrass, lime juice, fish sauce, and chili.(Shrimp add $2)"
+  },
+  {
+    "name": "TOM KHA CHICKEN SOUP",
+    "description": "Spicy coconut soup with chicken or shrimp (Shrimp add $2), mushrooms, galangal, tomato, lemongrass, lime juice, fish sauce, and chili."
+  },
+  {
+    "name": "GLASS NOODLE SOUP",
+    "description": "Veggie broth soup with glass noodle, napa, chicken, mushroom, and green onion."
+  },
+  {
+    "name": "SEVEN SEA SOUP",
+    "description": "Hot & sour soup with shrimp, squid, mussels, imitation crab, lemon grass, lime juice, and chili."
+  },
+  {
+    "name": "HOT AND SOUR SOUP",
+    "description": "Classic Chinese hot and sour soup with tofu, egg, pea, carrot, bamboo shoot, and chili."
+  },
+  {
+    "name": "FAMOUS CURRY",
+    "description": ""
+  },
+  {
+    "name": "YELLOW CHICKEN CURRY",
+    "description": "Tender chicken with potatoes, carrots, yellow curry paste, and coconut milk."
+  },
+  {
+    "name": "PANANG CURRY",
+    "description": "Beef with red curry paste, coconut milk, and peanut paste."
+  },
+  {
+    "name": "CHICKEN GREEN CURRY (CHICKEN ONLY)",
+    "description": "Chicken with eggplants with green curry paste and coconut milk."
+  },
+  {
+    "name": "CHICKEN PRIK KHING",
+    "description": "Chicken with green bean and red chili paste with coconut milk."
+  },
+  {
+    "name": "SHRIMP PINEAPPLE CURRY",
+    "description": "Red curry sauce with shrimp and pineapple."
+  },
+  {
+    "name": "FAMOUS BBQ",
+    "description": ""
+  },
+  {
+    "name": "THAI BBQ CHICKEN ( PLEASE ALLOW 15 Mins )",
+    "description": "Grilled chicken marinaded in Thai soy sauce, cilantro roots, pepper, coconut milk, served with sweet chili sauce."
+  },
+  {
+    "name": "THAI BBQ PORK RIBS ( PLEASE ALLOW 15 Mins )",
+    "description": "Marinaded spareribs in pineapple juice served with sweet chili sauce."
+  },
+  {
+    "name": "THAI PAN FRIED NOODLE",
+    "description": "Choice of: Chicken, beef, pork, fried tofu or steamed tofu, or mixed veggies / extra 3pcs.Shrimp add $2"
+  },
+  {
+    "name": "PAD THAI",
+    "description": "Stir-fried thin noodles with egg, sprouts, green onion, and peanut, with tamarind fish sauce."
+  },
+  {
+    "name": "PAD THAI SHRIMP",
+    "description": "Stir-fried thin noodles with egg, sprouts, green onion, and peanut, with tamarind fish sauce."
+  },
+  {
+    "name": "PAD KEE MAU ( DRUNKEN NOODLE )",
+    "description": "Stir-fried flat rice noodles with tomato, onion, basil, bell pepper, and chilies."
+  },
+  {
+    "name": "SPAGHETTI PAD KEE MAU",
+    "description": "Spaghetti with tomato, onion, basil, bell pepper, and chilies."
+  },
+  {
+    "name": "SPAGHETTI JAMBALAYA",
+    "description": "Stir-fried spaghetti with shrimp and chicken in spicy Cajun tomato cream sauce."
+  },
+  {
+    "name": "CHOW MEIN",
+    "description": ""
+  },
+  {
+    "name": "COMBINATION CHOW MEIN",
+    "description": "Stir-fried egg noodles with egg, vegetables, chicken, beef, and shrimp."
+  },
+  {
+    "name": "RAINBOW PAN FRIED NOODLES\n( PAD WOON SEN )",
+    "description": "Stir-fried glass noodles with egg, shrimp, chicken, tomato, onion, and broccoli."
+  },
+  {
+    "name": "PAN FRIED SUKIYAKI",
+    "description": "Stir-fried glass noodle with egg, squid, shrimp, veggies in spicy bean paste sauce."
+  },
+  {
+    "name": "HONG KONG PAD SEE EW CHICKEN",
+    "description": "Stir-fried vermicelli noodles with egg, Chinese broccoli, and black soy sauce."
+  },
+  {
+    "name": "SINGAPORE KUA KAI",
+    "description": "Stir-fried vermicelli noodles with egg, sprout, and green onion in sweet soy sauce."
+  },
+  {
+    "name": "RAD NA",
+    "description": "Stir-fried flat rice noodles with gravy and Chinese broccoli."
+  },
+  {
+    "name": "ASIAN NOODLE SOUP",
+    "description": ""
+  },
+  {
+    "name": "THAI BOAT NOODLES",
+    "description": "Thin rice noodles with beef stew, beef steak, beef ball, sprouts, cilantro, and green onion in beef broth."
+  },
+  {
+    "name": "PHO ( BEEF OR CHICKEN )",
+    "description": "Thin rice noodles with white onion, green onion, and cilantro in Pho soup."
+  },
+  {
+    "name": "WAR WONTON EGG NOODLES",
+    "description": "Egg noodles in veggie broth with shrimp, chicken wonton, chicken, imitation crab, fish ball, bean sprouts, green onion, and cilantro."
+  },
+  {
+    "name": "SHRIMP WONTON EGG NOODLES",
+    "description": "Premium shrimp wonton with egg noodles, bean sprouts, green onion, and cilantro in veggie broth."
+  },
+  {
+    "name": "TOM KHA NOODLES ( CHICKEN OR SHRIMP )",
+    "description": "Flat rice noodles in coconut milk soup with chicken, mushroom, and tomato. (Shrimp add $2)"
+  },
+  {
+    "name": "TOM YUM NOODLES ( CHICKEN OR SHRIMP )",
+    "description": "Flat rice noodles in lemon grass and lime soup with chicken, mushroom, and tomato (Shrimp add $2)"
+  },
+  {
+    "name": "HONG KONG BEEF STEW NOODLES",
+    "description": "Flat rice noodles with beef stew, bean sprouts, and green onion in beef broth."
+  },
+  {
+    "name": "PINK NOODLES ( YEN TA FOUR )",
+    "description": "Flat rice noodles with fish ball, shrimp, squid, imitation crab, tofu, and Chinese broccoli in red beans soup."
+  },
+  {
+    "name": "THAI FRIED RICE",
+    "description": "Choice of: chicken, beef, pork, tofu, mixed veggies / shrimp add $2 / seafood add $3.50"
+  },
+  {
+    "name": "THAI FRIED RICE",
+    "description": "Long grain rice stir-fried with egg, peas, carrot, tomato, green onion, and onion."
+  },
+  {
+    "name": "COMBINATION FRIED RICE",
+    "description": "With chicken, beef, shrimp, egg, peas, carrot, onion, tomato, and green onion."
+  },
+  {
+    "name": "SPICY FRIED RICE",
+    "description": "Long grain rice stir-fried with chilies, onion, and basil."
+  },
+  {
+    "name": "COMBINATION SPICY FRIED RICE",
+    "description": "Long grain rice stir-fried with chicken, beef, shrimp, and chili."
+  },
+  {
+    "name": "CHINESE SAUSAGE FRIED RICE",
+    "description": "Long grain rice stir-fried with Chinese sausage, egg, tomato, and green onion."
+  },
+  {
+    "name": "PINEAPPLE FRIED RICE",
+    "description": "With tomato, onion, pineapple, pea & carrot."
+  },
+  {
+    "name": "PANANG FRIED RICE ( BEEF ONLY )",
+    "description": "Long grain rice stir-fried with our famous beef panang curry."
+  },
+  {
+    "name": "A LA CARTE",
+    "description": "All Order Comes with Steamed Rice"
+  },
+  {
+    "name": "ORANGE CHICKEN",
+    "description": "With sesame seed on the top"
+  },
+  {
+    "name": "BASIL LEAVES CHICKEN ( BEEF, PORK, TOFU, SHRIMP $2 )",
+    "description": "Ground chicken stir-fried with mint leaves, chilies, garlic, onion, and bell pepper."
+  },
+  {
+    "name": "CHICKEN OR BEEF TERIYAKI (PLEASE ALLOW 15 Mins)",
+    "description": "Grilled with our owned Teriyaki sauce, topped on bed of vegetable."
+  },
+  {
+    "name": "SPICY EGGPLANT BASIL SAUCE",
+    "description": "Stir-fried eggplant with chili, black pepper, basil, and garlic."
+  },
+  {
+    "name": "HAINAN CHICKEN",
+    "description": "Garlic oil rice, steamed chicken, sweet black soy sauce and ginger sauce."
+  },
+  {
+    "name": "STRING BEANS GARLIC ( CHICKEN, BEEF, PORK, TOFU, SHRIMP $2)",
+    "description": "Fresh garlic pan-fried with green beans, black pepper, and oyster sauce."
+  },
+  {
+    "name": "KUNG PAO",
+    "description": "Stir-fried with bell pepper, chili, peanuts, and onion."
+  },
+  {
+    "name": "GARLIC AND PEPPER ( CHICKEN, BEEF, PORK, TOFU)",
+    "description": "Pan-fried garlic and pepper on bed of vegetable."
+  },
+  {
+    "name": "MONGOLIAN BEEF",
+    "description": "Stir-fried white onion, bell pepper, sesame seeds, and brown garlic sauce."
+  },
+  {
+    "name": "GARLIC BABY PORK SPARERIBS (SHORT)",
+    "description": "Baby spareribs marinated in garlic and white pepper and deep-fried."
+  },
+  {
+    "name": "MIXED VEGETABLES WITH TOFU (PAN FRIED OR STEAMED)",
+    "description": ""
+  },
+  {
+    "name": "BEEF BROCCOLI",
+    "description": "Stir-fried with broccoli and oyster-based soy sauce."
+  },
+  {
+    "name": "CASHEW NUT",
+    "description": "Stir-fried white onion, chili, bell pepper, and celery with cashew nut."
+  },
+  {
+    "name": "FISH AND SHRIMP",
+    "description": ""
+  },
+  {
+    "name": "SWEET & SOUR FISH",
+    "description": "Fried basa fillet, onions, bells, tomato, cucumber, and pineapple with sweet and sour."
+  },
+  {
+    "name": "SPICY FISH EGGPLANT BASIL SAUCE",
+    "description": "Pan-fried basa fillet with stir fried eggplant, chili, black pepper, basil, and garlic."
+  },
+  {
+    "name": "SPICY MINT FISH",
+    "description": "Pan-fried basa fillet with mint leaves, chilies, garlic, onion, and bell pepper."
+  },
+  {
+    "name": "FISH FILLET BLACK BEAN SAUCE",
+    "description": "Pan-fried basa fillet with garlic, onion, bell, and mushroom with black bean sauce."
+  },
+  {
+    "name": "GARLIC AND PEPPER SHRIMP",
+    "description": "Pan-fried shrimp, garlic, black pepper, and oyster sauce on bed of vegetable."
+  },
+  {
+    "name": "KUNG PAO SHRIMP",
+    "description": "Pan-fried shrimp, bell pepper, chili, peanuts, and onion."
+  },
+  {
+    "name": "DRINKS",
+    "description": ""
+  },
+  {
+    "name": "Thai Iced Tea",
+    "description": ""
+  },
+  {
+    "name": "Thai Iced Coffee",
+    "description": ""
+  },
+  {
+    "name": "Iced Green Tea",
+    "description": ""
+  },
+  {
+    "name": "Milk Green Tea",
+    "description": ""
+  },
+  {
+    "name": "Coke Diet Coke ( Can )",
+    "description": ""
+  },
+  {
+    "name": "Sprite ( Can )",
+    "description": ""
+  },
+  {
+    "name": "Hot Jasmine Tea",
+    "description": ""
+  },
+  {
+    "name": "Bottle Water",
+    "description": ""
+  },
+  {
+    "name": "DESSERT",
+    "description": ""
+  },
+  {
+    "name": "Fried Banana Crepe",
+    "description": ""
+  },
+  {
+    "name": "Sticky Rice with Mango (Seasonal)",
+    "description": ""
+  }
+]
