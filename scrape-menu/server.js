@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const { scrapeMenu } = require("./scraper");
+const { scrapeMenu } = require("./scraper-ai");
 
 const app = express();
 app.use(cors()); // Allow cross-origin requests

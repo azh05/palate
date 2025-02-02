@@ -390,5 +390,21 @@
   {
     "name": "Sticky Rice with Mango (Seasonal)",
     "description": ""
+  },
+  {
+    "name": "ALL DAY SPECIAL",
+    "description": "Add Egg Drop Soup & Egg Roll\nto your A La Carte Order for $2.50\nSubstitute Steamed Rice for\nEgg Fried Rice or Chow Mein $3.50"
+  },
+  {
+    "name": "Address",
+    "description": "936 Broxton Ave, Los Angeles, CA 90024"
+  },
+  {
+    "name": "Opening Hours",
+    "description": "Mon – Fri 8 AM – 10 PM\nSat 11 AM – 10 PM\nSun 12 PM – 9 PM"
+  },
+  {
+    "name": "Contact",
+    "description": "(310) 208-7808"
   }
 ]

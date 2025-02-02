@@ -56,18 +56,23 @@ const fs = require("fs"); // Import the fs module to write files
 // Function to scroll through the page and load all dynamic content
 async function autoScroll(page) {
     await page.evaluate(async () => {
-        await new Promise((resolve) => {
-            let totalHeight = 0;
-            const distance = 100; // Scroll distance
-            const timer = setInterval(() => {
-                window.scrollBy(0, distance);
-                totalHeight += distance;
-
-                if (totalHeight >= document.body.scrollHeight) {
-                    clearInterval(timer);
-                    resolve();
-                }
-            }, 200); // Adjust interval as needed
-        });
+      const distance = 100; // Distance to scroll by each time
+      const delay = 200; // Delay between each scroll action (in milliseconds)
+      const waitAfterScroll = 1000; // Time to wait after reaching the bottom (in milliseconds)
+      let lastHeight = document.body.scrollHeight;
+  
+      while (true) {
+        window.scrollTo(0, document.body.scrollHeight);
+        await new Promise(resolve => setTimeout(resolve, delay)); // Wait for new content to load
+  
+        // Check if the page height is still the same, meaning we've reached the bottom
+        const newHeight = document.body.scrollHeight;
+        if (newHeight === lastHeight) {
+          // Wait a bit longer after scrolling to the bottom
+          await new Promise(resolve => setTimeout(resolve, waitAfterScroll));
+          break;
+        }
+        lastHeight = newHeight;
+      }
     });
-}
+  }
