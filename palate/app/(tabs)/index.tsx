@@ -1,15 +1,16 @@
 import { View, Text, StyleSheet } from 'react-native';
 import SearchBar from '../../components/SearchBar';
 import ImageUploadButton from '../../components/ImageUploadButton';
+import FadeView from '../../components/FadeView';
 
 export default function IndexPage() {
   return (
-    <View style={styles.container}>
+    <FadeView style={styles.container}>
       <Text style={styles.title}>What's on your Palate?</Text>
       <SearchBar />
       <Text style={styles.orText}>or</Text>
       <ImageUploadButton />
-    </View>
+    </FadeView>
   );
 }
 

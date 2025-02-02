@@ -1,6 +1,7 @@
 import { TouchableOpacity, Text, StyleSheet } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import * as ImagePicker from 'expo-image-picker';
+import { router } from 'expo-router';
 
 export default function ImageUploadButton() {
   const handleImageUpload = async () => {
@@ -11,8 +12,11 @@ export default function ImageUploadButton() {
     });
 
     if (!result.canceled) {
-      // Handle the selected image
-      console.log(result.assets[0].uri);
+      // Navigate to result page with the image URI
+      router.push({
+        pathname: '/result',
+        params: { imageUri: result.assets[0].uri }
+      });
     }
   };
 
