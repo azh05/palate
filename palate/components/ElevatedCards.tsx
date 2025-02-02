@@ -54,7 +54,8 @@ const styles = StyleSheet.create({
         fontFamily: 'BodoniFLF',
         marginBottom: 2,
         color: '#000',
-        fontWeight: '700'
+        fontWeight: '700',
+        fontSize: 10
     },
     emoji: {
         fontSize: 28,

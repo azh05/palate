@@ -105,14 +105,39 @@ export default function RecommendationsScreen() {
   useEffect(() => {
     if (params.recommendations) {
       const data = JSON.parse(params.recommendations as string);
-      setRecommendations(data);
-
+      
       if(data && data.dishes) {
-        console.log(data.dishes.dishes);
-        console.log(data.dishes);
-      }
+        // Take first 3 dishes and format them for carousel
+        const carouselDishes = data.dishes.slice(2, 5).map((dish: {name: string, description: string, image: string}) => ({
+          title: dish.name,
+          body: dish.description || "No description available",
+          imgUrl: dish.image || (Math.random() < 0.5 ? "https://static.wikia.nocookie.net/chickenlittle/images/0/04/Chicken_Little.jpg/revision/latest?cb=20170302012156" : "https://static.wikia.nocookie.net/yugioh/images/4/49/Carrotman-OW.png/revision/latest?cb=20140110201135")
+        }));
 
-      console.log("Parsed recommendations:", data);
+        // Format avoid items from dishes that are not recommended
+        const avoidDishes = data.dishes
+          .filter((dish: {isRecommended: string}) => dish.isRecommended === "0")
+          .slice(10, 20)
+          .map((dish: {name: string, description: string, items?: string[]}, index: number) => ({
+            title: dish.name,
+            content: dish.description || "These items might not suit your preferences",
+            items: dish.items || []
+          }));
+
+        // Randomly sample 7 dishes for other items
+        const foodEmojis = ["🍜", "🍛", "🍝", "🍲", "🥘", "🥗", "🍱", "🍚", "🥪", "🌮", "🌯", "🥙", "🥩", "🍗", "🍖"];
+        const shuffled = [...data.dishes].sort(() => 0.5 - Math.random());
+        const randomOtherDishes = shuffled.slice(0, 7).map(dish => ({
+          emoji: foodEmojis[Math.floor(Math.random() * foodEmojis.length)],
+          title: dish.name
+        }));
+        
+        setRecommendations({
+          carouselItems: carouselDishes,
+          avoidItems: avoidDishes,
+          otherItems: randomOtherDishes
+        });
+      }
     }
   }, [params.recommendations]);
 
@@ -126,7 +151,7 @@ export default function RecommendationsScreen() {
         <Text style={styles.title}>You might like...</Text>
       </View>
       <View style={styles.carouselContainer}>
-        <SnapCarousel items={carouselItems} />
+        <SnapCarousel items={recommendations.carouselItems || carouselItems} />
       </View>
       <View style={styles.avoidContainer}>
           <Text style={styles.avoidText}>
@@ -134,7 +159,7 @@ export default function RecommendationsScreen() {
           </Text>
       </View>
       <View style={styles.avoidContainer}>
-        <AvoidDropdowns items={avoidItems} />
+        <AvoidDropdowns items={recommendations.avoidItems || avoidItems} />
       </View>
 
       <View style={styles.otherTextContainer}>
@@ -142,7 +167,7 @@ export default function RecommendationsScreen() {
       </View>
 
       <View style={styles.elevatedCardsContainer}>
-        <ElevatedCards items={otherItems}/>
+        <ElevatedCards items={recommendations.otherItems || otherItems}/>
       </View>
 
     </ScrollView>

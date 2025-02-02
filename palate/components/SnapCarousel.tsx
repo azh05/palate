@@ -44,7 +44,7 @@ export default function SnapCarousel({ items }: SnapCarouselProps) {
                         style={styles.image}
                     />
                     <View style={styles.titleContainer}>
-                        <Text style={styles.title}>{item.title}</Text>
+                        <Text style={styles.title} numberOfLines={1} ellipsizeMode="tail">{item.title}</Text>
                         <TouchableOpacity 
                             style={styles.bookmarkButton}
                             onPress={() => toggleBookmark(index)}
@@ -56,7 +56,9 @@ export default function SnapCarousel({ items }: SnapCarouselProps) {
                             />
                         </TouchableOpacity>
                     </View>
-                    <Text style={styles.description}>{item.body}</Text>
+                    <ScrollView style={styles.descriptionContainer}>
+                        <Text style={styles.description}>{item.body}</Text>
+                    </ScrollView>
                 </View>
             ))}
         </ScrollView>
@@ -68,7 +70,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#E9C46A',
         width: ITEM_WIDTH,
         margin: ITEM_MARGIN,
-        height: ITEM_WIDTH + 100,
+        height: ITEM_WIDTH + 200,
         borderRadius: 10,
         padding: 15,
         overflow: 'hidden'
@@ -95,6 +97,9 @@ const styles = StyleSheet.create({
     bookmarkButton: {
         padding: 8,
         marginRight: -8
+    },
+    descriptionContainer: {
+        maxHeight: '20%'
     },
     description: {
         fontSize: 12,

@@ -364,7 +364,7 @@ app.post("/api/user/feedback", async (req, res) => {
 
 // POST: Recommend dishes from saved menu data
 app.post("/api/menu/recommend-from-saved", async (req, res) => {
-  const { userName } = req.query;
+  const { userName } = req.body;
 
   try {
     // Read menu data from JSON file
@@ -373,6 +373,8 @@ app.post("/api/menu/recommend-from-saved", async (req, res) => {
     if (!userName || !menuData) {
       return res.status(400).json({ error: "User name and menu data are required" });
     }
+
+    console.log(menuData);
 
     const user = await getUser(userName);
     if (!user) {

@@ -9,7 +9,7 @@ export default function SearchBar() {
   const handleSearch = async () => {
     try {
       console.log("Sending URL:", url);
-      const response = await fetch('http://localhost:9000/api/menu/recommend-dishes', {
+      const response = await fetch('http://localhost:9000/api/menu/recommend-from-saved', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -37,6 +37,7 @@ export default function SearchBar() {
       }
     } catch (error) {
       console.error('Error:', error);
+      console.log(error);
       alert('Failed to process URL');
     }
   };
