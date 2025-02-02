@@ -28,11 +28,10 @@ Upload a photo of a menu or paste a link to an online menu, and let Palate do th
 - **Node.js with Express** or **Firebase** (Firestore, Cloud Functions).  
 
 ### **APIs/Tools**  
-- **Google Vision API** (OCR for menu image processing).  
-- **Google Translate API** (menu translation).  
+- **Google Vision API** (OCR for menu image processing).   
 - **TensorFlow Lite** (on-device allergen detection).  
 - **Firebase Firestore** (user data and recommendations).  
-- **Web Scraping:** BeautifulSoup (Python) or Cheerio (Node.js).  
+- **Web Scraping:** Puppeteer (Node.js) or Axios (Node.js).  
 
 ### **Deployment**  
 - **Mobile App Distribution:** Expo (for React Native app distribution).  
